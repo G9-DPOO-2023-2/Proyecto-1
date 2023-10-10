@@ -1,0 +1,10 @@
+Luis Hernandez; 12548965721; 3219855235; l.hernandez@gmail.com; 20; None
+Enrique Rico; 14578952402; 3584782021; e.rico@gmail.com; 12; Sede1
+Felipe Feo; 14785200142; 3696985326; f.feo@gmail.com; 11; Sede2
+Matias Martinez; 18265495802; 3782012457; m.martinez@gmail.com; 11; Sede3
+Pepito Noel; 17854241013; 3741025489; p.noel@gmail.com; 5; Sede1
+Fiona Linda; 19875420253; 3250169875; f.linda@gmail.com; 4; Sede1
+Rayo Mcqueen; 13520245893; 3413582015; r.mcqueen@gmail.com; 6; Sede2
+Sally Porche; 14202535893; 3204892221; s.porche@gmail.com; 6; Sede2
+Lura Luna; 12035789523; 3101148985; l.luna@gmail.com; 7; Sede3
+Sol Solecito; 10121452033; s.solecito@gmail.com; 4; Sede3
