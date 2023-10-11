@@ -1,0 +1,10 @@
+MYC_789; Toyota; PRADO TXL; 2020; Blanco; Automatico; Sede1; False; Limpieza;suv
+TJX_598; Chevrolet; Tracker; 2019; Rojo; Mecanico; calle 117 N 2-54; True; None;suv
+KLY_694; Mercedes AMG; A35 4Matic; 2023; Negro; Automatico; Sede2; False; Listo; Deportivo
+ART_145; BMW; Z4; Gris; Automatico; 2019; calle 74 N 1-58; True; None; Deportivo
+LPO_910; Chevrolet; Spark GT; 2015; Negro; Mecanico; Sede3; False; Listo;pequeño
+WPO_210;Suzuki; Swift Hibrido; 2023; Azul; Mecanico; calle 15 N 7-95; True; None;pequeño
+QOR_678; Renault; Kangoo; 2020; Blanco; Mecanico; Sede1; False; Listo;vans
+PKB_458; Renault; Master; 2020; Blanco; Automatico; Cra 67 N 56-98; True; None;vans
+XBN_378; Maserati; Grecole; 2023; Gris; Automatico; Sede2; False; Limpieza;lujo
+ZML_402; Bentley; Flying Spur; 2022; Blanco; Automatico; calle 170 N 24-64; True; None;lujo 
