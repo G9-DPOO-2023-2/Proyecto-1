@@ -12,6 +12,7 @@ import Logica.ClienteRegistrado;
 import Logica.Empleado;
 import Logica.Sede;
 import Logica.Vehiculo;
+import Logica.BaseDatos;
 
 public class Aplicacion 
 {
@@ -20,5 +21,12 @@ public class Aplicacion
 		Categoria x = new Categoria();
 		x.cargarVehiculos("vehiculos.txt");
 		System.out.println(x);
+		
+		BaseDatos y = new BaseDatos();
+		y.cargarEmpleados("empleados.txt");
+		System.out.println(y);
+		
+		y.cargarClientesRegistrados("ClientesRegistrados.txt");
+		System.out.println(y);
 	}
 }

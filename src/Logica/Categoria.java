@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Aca van a ir todas las funciones relacionadas con la carga de datos de cada uno de los 
- * archivos txt.
+ * datos encontrados en el txt de los vehiculos.
  */
 
 public class Categoria 
