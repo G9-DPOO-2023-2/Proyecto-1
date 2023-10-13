@@ -61,6 +61,12 @@ public class Vehiculo
 	 */
 	
 	private String estado;
+	
+	/**
+	 * Especifica la categoria a la que pertenece el Vehiculo
+	 */
+	
+	private String tipo;
 
 	
 	//*******************************************************************************
@@ -80,7 +86,7 @@ public class Vehiculo
 	 * @param estado - El estado del vehiculo
 	 */
 	public Vehiculo(String placa, String marca, String modelo, int ano, String color, String transmision,
-			String ubicacion, boolean alquilado, String estado) 
+			String ubicacion, boolean alquilado, String estado, String tipo) 
 	{
 		super();
 		this.placa = placa;
@@ -92,6 +98,7 @@ public class Vehiculo
 		this.ubicacion = ubicacion;
 		this.alquilado = alquilado;
 		this.estado = estado;
+		this.tipo = tipo;
 	}
 
 	
@@ -160,6 +167,13 @@ public class Vehiculo
 	 */
 	public String getEstado() {
 		return estado;
+	}
+	
+	/**
+	 *  @return la categoria a la que pertenece el vehiculo
+	 */
+	public String getTipo(){
+		return tipo;
 	}
 
 }

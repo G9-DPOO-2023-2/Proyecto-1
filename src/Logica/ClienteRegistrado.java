@@ -1,7 +1,16 @@
 package Logica;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 public class ClienteRegistrado extends Persona
 {
+	private ArrayList<Reserva> infoReserva;
+	private HashMap <Integer, ArrayList<Reserva>> reservas;
+	private int reserva = 0;
+	private Reserva nuevaReserva;
+	
 	//*******************************************************
 	//Atributos
 	//******************************************************
@@ -32,6 +41,8 @@ public class ClienteRegistrado extends Persona
 		this.fechaNacimiento = fechaNacimiento;
 		this.nacionalidad = nacionalidad;
 		this.paisExpedicion = paisExpedicion;
+		reservas = new HashMap<>();
+		infoReserva = new ArrayList<>();
 	}
 	
 	//***************************************************************
@@ -66,4 +77,18 @@ public class ClienteRegistrado extends Persona
 	{
 		this.paisExpedicion = paisExpedicion;
 	}
+	
+	//*************************************************************
+	//Metodos Especificos
+	//*************************************************************
+	public void reservarVehiculo(String categoriaCarro, String sede, String fechaPickUp, String horaTurnIn, String sedeTurnIn)
+	{
+		this.nuevaReserva = new Reserva(categoriaCarro,sede,fechaPickUp,sedeTurnIn,horaTurnIn);
+		
+		infoReserva.add(nuevaReserva);
+		reservas.put(++reserva, infoReserva);
+		
+	
+	}
+
 }
