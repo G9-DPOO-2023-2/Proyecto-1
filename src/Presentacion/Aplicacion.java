@@ -23,6 +23,7 @@ public class Aplicacion
 	private ClienteRegistrado cliente;
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
+	
 
 	public Aplicacion()
 	{
@@ -30,9 +31,13 @@ public class Aplicacion
 		baseDatos = new BaseDatos();
 		cliente = new ClienteRegistrado(null, 0, 0, null, 0, null, null, null);
 
-		baseDatos.cargarBaseDatos("empleados.txt", "ClientesRegistrados.txt","sede1.txt","sede2.txt","sede3.txt");
+		baseDatos.cargarBaseDatos("empleados.txt", 
+								  "ClientesRegistrados.txt",
+								  "sede1.txt",
+								  "sede2.txt",
+								  "sede3.txt");
 		categoria.cargarFlotilla("vehiculos.txt");
-
+		
 		clientes = baseDatos.getClientesRegistrados();
 		empleados = baseDatos.getEmpleados();
 

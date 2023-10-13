@@ -92,10 +92,13 @@ public class ClienteRegistrado extends Persona
 	//*************************************************************
 	//Metodos Especificos
 	//*************************************************************
+	
 	public void reservarVehiculo(String categoriaCarro, String sede, String fechaPickUp, String horaTurnIn, String sedeTurnIn)
 	{
+		
 		this.nuevaReserva = new Reserva(categoriaCarro,sede,fechaPickUp,sedeTurnIn,horaTurnIn);
-		this.basedatos = new BaseDatos();
+		
+		HashMap<String, List<String>> sede1 = basedatos.getSede1();
 		
 		infoReserva.add(nuevaReserva);
 		reservas.put(++reserva, infoReserva);
@@ -104,22 +107,25 @@ public class ClienteRegistrado extends Persona
 
 			if(sede.equals("sede1") && categoriaCarro.equals("suv")){
 				System.out.println("Dentro del bloque IF!");
-				
-				HashMap<String, List<String>> sede1 = basedatos.getSede1();
 
 				Set<String> llaves = sede1.keySet();
+				System.out.println(llaves);
+				
 				String llaveEs = null;
+				List<String> valorCarro = null;
 
 				for (String llave : llaves){
-					List<String> valorCarro = sede1.get(llave);
+					valorCarro = sede1.get(llave);
+					System.out.println(valorCarro);
 					if (valorCarro.get(9).equals("suv")){
-						carrosEnUso.put(llave, valorCarro);
 						llaveEs = llave;
 						break;
 					}
 				}
+				carrosEnUso.put(llaveEs, valorCarro);
 				sede1.remove(llaveEs);
 			}
+			System.out.println("---------------------------------------------");
 			System.out.println(carrosEnUso);
 			System.out.println("-------------------------------------------------------------");
 			System.out.println(reservas);
