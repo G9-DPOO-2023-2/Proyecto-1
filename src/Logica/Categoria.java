@@ -67,6 +67,18 @@ public class Categoria
 	
 	//Metodos de Logica
 	
+	public void cargarFlotilla(String archivoVehiculos)
+	{
+		try 
+		{
+			cargarVehiculos(archivoVehiculos);
+		}catch (Exception e) {
+
+		}
+	}
+	
+	
+	
 	/**
 	 * Cada una de estas funciones carga los txt de los vehiculos y los almacena en cada 
 	 * uno de los HashMap respectivamente (dependiendo de su categoria)

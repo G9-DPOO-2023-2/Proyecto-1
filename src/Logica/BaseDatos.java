@@ -44,6 +44,18 @@ public class BaseDatos
 		
 		//Metodos de Logica
 		
+		
+		public void cargarBaseDatos(String archivoEmpleados, String archivoClientes) {
+		try 
+		{
+			cargarEmpleados(archivoEmpleados);
+			cargarClientesRegistrados(archivoClientes);
+		}catch (Exception e) {
+
+		}
+		
+	}
+		
 		/**
 		 * Cada una de estas funciones carga los txt de los vehiculos y los almacena en cada 
 		 * uno de los HashMap respectivamente (dependiendo de su categoria)
@@ -102,4 +114,17 @@ public class BaseDatos
 	        // Imprimir el HashMap
 	        System.out.println(clientesRegistrados);
 	    }
+		
+		//*********************************************************************
+		//Getters and Setters
+		//*********************************************************************
+		
+		public void setEmpleados(HashMap<String, List<String>> empleados) {
+			this.empleados = empleados;
+		}
+
+		public void setClientesRegistrados(HashMap<String, List<String>> clientesRegistrados) {
+			this.clientesRegistrados = clientesRegistrados;
+		}
+
 	}
