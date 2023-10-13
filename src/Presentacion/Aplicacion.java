@@ -21,6 +21,7 @@ public class Aplicacion
 	private Categoria categoria;
 	private BaseDatos baseDatos;
 	private ClienteRegistrado cliente;
+	private AdminGeneral adminGeneral;
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
 	
@@ -29,6 +30,7 @@ public class Aplicacion
 	{
 		categoria = new Categoria ();
 		baseDatos = new BaseDatos();
+		adminGeneral = new AdminGeneral(null, 0, 0, null, 0);
 		cliente = new ClienteRegistrado(null, 0, 0, null, 0, null, null, null);
 
 		baseDatos.cargarBaseDatos("empleados.txt", 
@@ -306,8 +308,21 @@ public class Aplicacion
 	
 	public void registrarCompraNuevosVehiculos()
 	{
+		System.out.println("\n Por favor sigue los pasos para poder registrar el Nuevo Vehiculo");
+		String placa = input("");
+		String marca = input("");
+		String modelo = input("");
+		String ano = input("");
+		String color = input("");
+		String transmision = input("");
+		String ubicacion = input("");
+		String alquilado = input("");
+		String estado = input("");
+		String tipo = input("");
+		
 		
 	}
+		
 	
 	public void darBajaVehiculo()
 	{
