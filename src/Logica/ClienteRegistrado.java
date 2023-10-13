@@ -1,7 +1,10 @@
 package Logica;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 
 public class ClienteRegistrado extends Persona
@@ -10,27 +13,31 @@ public class ClienteRegistrado extends Persona
 	private HashMap <Integer, ArrayList<Reserva>> reservas;
 	private int reserva = 0;
 	private Reserva nuevaReserva;
-	
+
+	private BaseDatos basedatos;
+
+	private HashMap<String, List<String>> carrosEnUso;
+
 	//*******************************************************
 	//Atributos
 	//******************************************************
-	
+
 	/**
 	 * Es la fecha de nacimiento del cliente su orden es 
 	 * día-mes-año
 	 */
 	private String fechaNacimiento;
-	
+
 	/**
 	 * Es el lugar de nacimiento del cliente registrado
 	 */
 	private String nacionalidad;
-	
+
 	/**
 	 * Es el lugar donde saco su documento de identidad
 	 */
 	private String paisExpedicion;
-	
+
 	//*******************************************************
 	//Constructor
 	//*******************************************************
@@ -43,8 +50,12 @@ public class ClienteRegistrado extends Persona
 		this.paisExpedicion = paisExpedicion;
 		reservas = new HashMap<>();
 		infoReserva = new ArrayList<>();
+		
+		
+
+		carrosEnUso = new HashMap<>();
 	}
-	
+
 	//***************************************************************
 	//Metodos para consultar los Atributos
 	//**************************************************************
@@ -77,19 +88,41 @@ public class ClienteRegistrado extends Persona
 	{
 		this.paisExpedicion = paisExpedicion;
 	}
-	
+
 	//*************************************************************
 	//Metodos Especificos
 	//*************************************************************
 	public void reservarVehiculo(String categoriaCarro, String sede, String fechaPickUp, String horaTurnIn, String sedeTurnIn)
 	{
 		this.nuevaReserva = new Reserva(categoriaCarro,sede,fechaPickUp,sedeTurnIn,horaTurnIn);
+		this.basedatos = new BaseDatos();
 		
 		infoReserva.add(nuevaReserva);
 		reservas.put(++reserva, infoReserva);
-		
-	
-	
-	}
+		System.out.println("Verificando condiciones del if...");
 
+
+			if(sede.equals("sede1") && categoriaCarro.equals("suv")){
+				System.out.println("Dentro del bloque IF!");
+				
+				HashMap<String, List<String>> sede1 = basedatos.getSede1();
+
+				Set<String> llaves = sede1.keySet();
+				String llaveEs = null;
+
+				for (String llave : llaves){
+					List<String> valorCarro = sede1.get(llave);
+					if (valorCarro.get(9).equals("suv")){
+						carrosEnUso.put(llave, valorCarro);
+						llaveEs = llave;
+						break;
+					}
+				}
+				sede1.remove(llaveEs);
+			}
+			System.out.println(carrosEnUso);
+			System.out.println("-------------------------------------------------------------");
+			System.out.println(reservas);
+			
+		}
 }

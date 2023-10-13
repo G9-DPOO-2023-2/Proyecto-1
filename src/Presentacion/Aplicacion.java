@@ -20,6 +20,7 @@ public class Aplicacion
 {
 	private Categoria categoria;
 	private BaseDatos baseDatos;
+	private ClienteRegistrado cliente;
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
 
@@ -27,6 +28,7 @@ public class Aplicacion
 	{
 		categoria = new Categoria ();
 		baseDatos = new BaseDatos();
+		cliente = new ClienteRegistrado(null, 0, 0, null, 0, null, null, null);
 
 		baseDatos.cargarBaseDatos("empleados.txt", "ClientesRegistrados.txt","sede1.txt","sede2.txt","sede3.txt");
 		categoria.cargarFlotilla("vehiculos.txt");
@@ -269,7 +271,18 @@ public class Aplicacion
 
 	public void reservarVehiculo()
 	{
-
+		System.out.println("\n Por favor sigue las siguientes instrucciones para realizar la reserva ");
+		
+		String categoriaCarro = input("\n Por favor ingrese la categoria que desea (suv, deportivo, lujo, pequeño o vans ) ");
+		String sede = input("\n En que sede desea realizar la reserva (sede1, sede2 o sede3)");
+		String fechaPickUp = input ("\n Cuando recogeria el vehiculo (día-mes-año)");
+		String sedeDevolucion = input ("\n En que sede realizara la devolucion (sede1, sede2 o sede3)");
+		String fechaDevolucion = input ("\n En que fecha realizara la devolucion (día-mes-año)");
+		
+		cliente.reservarVehiculo(categoriaCarro, sede, fechaPickUp, fechaDevolucion, sedeDevolucion);
+		
+		System.out.println("\n Se ha realizado su reserva y se le realizo un cobro del 30% sobre " + "\n la tarifa calculada"); 
+		
 	}
 
 	public void alquilarVehiculo()
