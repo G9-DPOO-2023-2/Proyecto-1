@@ -50,10 +50,10 @@ public class ClienteRegistrado extends Persona
 		this.paisExpedicion = paisExpedicion;
 		reservas = new HashMap<>();
 		infoReserva = new ArrayList<>();
-		
-		
-
 		carrosEnUso = new HashMap<>();
+		this.basedatos = new BaseDatos();
+		basedatos.cargarSede1("sede1.txt");
+		
 	}
 
 	//***************************************************************
@@ -99,6 +99,8 @@ public class ClienteRegistrado extends Persona
 		this.nuevaReserva = new Reserva(categoriaCarro,sede,fechaPickUp,sedeTurnIn,horaTurnIn);
 		
 		HashMap<String, List<String>> sede1 = basedatos.getSede1();
+		System.out.println(sede1.keySet().toString());
+		System.out.println("--------------------------------------------");
 		
 		infoReserva.add(nuevaReserva);
 		reservas.put(++reserva, infoReserva);
@@ -117,7 +119,7 @@ public class ClienteRegistrado extends Persona
 				for (String llave : llaves){
 					valorCarro = sede1.get(llave);
 					System.out.println(valorCarro);
-					if (valorCarro.get(9).equals("suv")){
+					if (valorCarro.get(8).equals("suv")){
 						llaveEs = llave;
 						break;
 					}
