@@ -89,6 +89,7 @@ public class ClienteRegistrado extends Persona
 		reservas.put(++reserva, infoReserva);
 		
 	
+	
 	}
 
 }

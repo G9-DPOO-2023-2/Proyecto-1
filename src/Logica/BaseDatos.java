@@ -19,6 +19,9 @@ public class BaseDatos
 		
 		private HashMap<String, List<String>> empleados;
 		private HashMap<String, List<String>> clientesRegistrados;
+		private HashMap<String, List<String>> sede1;
+		private HashMap<String, List<String>> sede2;
+		private HashMap<String, List<String>> sede3;
 		
 		//**********************************************************************************
 		//Constructor
@@ -28,6 +31,9 @@ public class BaseDatos
 		{
 			empleados = new HashMap<>();
 			clientesRegistrados = new HashMap<>();
+			sede1 = new HashMap<>();
+			sede2 = new HashMap<>();
+			sede3 = new HashMap<>();
 		}
 		
 		//Metodos OJO recomendable poner setters and getters
@@ -36,20 +42,55 @@ public class BaseDatos
 		{
 			return empleados;
 		}
+		
+		public void setEmpleados(HashMap<String, List<String>> empleados) {
+			this.empleados = empleados;
+		}
 
 		public HashMap<String, List<String>> getClientesRegistrados() 
 		{
 			return clientesRegistrados;
 		}
 		
+		public void setClientesRegistrados(HashMap<String, List<String>> clientesRegistrados) {
+			this.clientesRegistrados = clientesRegistrados;
+		}
+		
+		
+		public HashMap<String, List<String>> getSede1() {
+			return sede1;
+		}
+
+		public void setSede1(HashMap<String, List<String>> sede1) {
+			this.sede1 = sede1;
+		}
+
+		public HashMap<String, List<String>> getSede2() {
+			return sede2;
+		}
+
+		public void setSede2(HashMap<String, List<String>> sede2) {
+			this.sede2 = sede2;
+		}
+
+		public HashMap<String, List<String>> getSede3() {
+			return sede3;
+		}
+
+		public void setSede3(HashMap<String, List<String>> sede3) {
+			this.sede3 = sede3;
+		}
+		
 		//Metodos de Logica
-		
-		
-		public void cargarBaseDatos(String archivoEmpleados, String archivoClientes) {
+
+		public void cargarBaseDatos(String archivoEmpleados, String archivoClientes, String archivoSede1, String archivoSede2, String archivoSede3) {
 		try 
 		{
 			cargarEmpleados(archivoEmpleados);
 			cargarClientesRegistrados(archivoClientes);
+			cargarSede1(archivoSede1);
+			cargarSede2(archivoSede2);
+			cargarSede3(archivoSede3);
 		}catch (Exception e) {
 
 		}
@@ -115,16 +156,82 @@ public class BaseDatos
 	        System.out.println(clientesRegistrados);
 	    }
 		
-		//*********************************************************************
-		//Getters and Setters
-		//*********************************************************************
-		
-		public void setEmpleados(HashMap<String, List<String>> empleados) {
-			this.empleados = empleados;
-		}
+		public void cargarSede1 (String archivo)
+		{
+			try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+	            String linea;
+	            while ((linea = br.readLine()) != null) {
+	                String[] partes = linea.split(";");
+	                
+	                // Usar la primera parte como clave
+	                String placa = partes[0];
 
-		public void setClientesRegistrados(HashMap<String, List<String>> clientesRegistrados) {
-			this.clientesRegistrados = clientesRegistrados;
+	                // Agregar las demás partes a una lista
+	                List<String> valores = new ArrayList<>();
+	                for (int i = 1; i < partes.length; i++) {
+	                    valores.add(partes[i]);
+	                }
+
+	                // Insertar la clave y la lista de valores en el HashMap
+	                sede1.put(placa, valores);
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+			// Imprimir el HashMap
+	        System.out.println(sede1);
+		}
+		
+		public void cargarSede2 (String archivo)
+		{
+			try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+	            String linea;
+	            while ((linea = br.readLine()) != null) {
+	                String[] partes = linea.split(";");
+	                
+	                // Usar la primera parte como clave
+	                String placa = partes[0];
+
+	                // Agregar las demás partes a una lista
+	                List<String> valores = new ArrayList<>();
+	                for (int i = 1; i < partes.length; i++) {
+	                    valores.add(partes[i]);
+	                }
+
+	                // Insertar la clave y la lista de valores en el HashMap
+	                sede2.put(placa, valores);
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+			// Imprimir el HashMap
+	        System.out.println(sede2);
+		}
+		
+		public void cargarSede3 (String archivo)
+		{
+			try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+	            String linea;
+	            while ((linea = br.readLine()) != null) {
+	                String[] partes = linea.split(";");
+	                
+	                // Usar la primera parte como clave
+	                String placa = partes[0];
+
+	                // Agregar las demás partes a una lista
+	                List<String> valores = new ArrayList<>();
+	                for (int i = 1; i < partes.length; i++) {
+	                    valores.add(partes[i]);
+	                }
+
+	                // Insertar la clave y la lista de valores en el HashMap
+	                sede3.put(placa, valores);
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+			// Imprimir el HashMap
+	        System.out.println(sede3);
 		}
 
 	}

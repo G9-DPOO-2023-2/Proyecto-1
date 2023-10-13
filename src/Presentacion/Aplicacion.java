@@ -28,7 +28,7 @@ public class Aplicacion
 		categoria = new Categoria ();
 		baseDatos = new BaseDatos();
 
-		baseDatos.cargarBaseDatos("empleados.txt", "ClientesRegistrados.txt");
+		baseDatos.cargarBaseDatos("empleados.txt", "ClientesRegistrados.txt","sede1.txt","sede2.txt","sede3.txt");
 		categoria.cargarFlotilla("vehiculos.txt");
 
 		clientes = baseDatos.getClientesRegistrados();
