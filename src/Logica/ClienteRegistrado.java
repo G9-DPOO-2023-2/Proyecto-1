@@ -1,7 +1,6 @@
 package Logica;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -53,6 +52,8 @@ public class ClienteRegistrado extends Persona
 		carrosEnUso = new HashMap<>();
 		this.basedatos = new BaseDatos();
 		basedatos.cargarSede1("sede1.txt");
+		basedatos.cargarSede2("sede2.txt");
+		basedatos.cargarSede3("sede3.txt");
 		
 	}
 
@@ -99,6 +100,8 @@ public class ClienteRegistrado extends Persona
 		this.nuevaReserva = new Reserva(categoriaCarro,sede,fechaPickUp,sedeTurnIn,horaTurnIn);
 		
 		HashMap<String, List<String>> sede1 = basedatos.getSede1();
+		HashMap<String, List<String>> sede2 = basedatos.getSede2();
+		HashMap<String, List<String>> sede3 = basedatos.getSede3();
 		System.out.println(sede1.keySet().toString());
 		System.out.println("--------------------------------------------");
 		
@@ -127,10 +130,324 @@ public class ClienteRegistrado extends Persona
 				carrosEnUso.put(llaveEs, valorCarro);
 				sede1.remove(llaveEs);
 			}
+			
+			else if (sede.equals("sede1") && categoriaCarro.equals("Deportivo")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede1.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede1.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("Deportivo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede1") && categoriaCarro.equals("pequeño")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede1.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede1.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("pequeño")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede1") && categoriaCarro.equals("lujo")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede1.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede1.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("lujo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede1") && categoriaCarro.equals("vans")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede1.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede1.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("vans")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			/**
+			 * si es sede 2
+			 */
+			else if(sede.equals("sede2") && categoriaCarro.equals("suv")){
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede2.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede2.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("suv")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede2") && categoriaCarro.equals("Deportivo")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede2.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede2.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("Deportivo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede2") && categoriaCarro.equals("pequeño")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede2.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede2.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("pequeño")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede2") && categoriaCarro.equals("lujo")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede2.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede2.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("lujo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede2") && categoriaCarro.equals("vans")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede2.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede2.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("vans")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			/**
+			 * si es sede 3
+			 */
+			
+			else if(sede.equals("sede3") && categoriaCarro.equals("suv")){
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede3.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede3.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("suv")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede3") && categoriaCarro.equals("Deportivo")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede3.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede3.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("Deportivo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede3") && categoriaCarro.equals("pequeño")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede3.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede3.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("pequeño")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede3") && categoriaCarro.equals("lujo")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede3.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede3.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("lujo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
+			else if (sede.equals("sede3") && categoriaCarro.equals("vans")) 
+			{
+				System.out.println("Dentro del bloque IF!");
+
+				Set<String> llaves = sede3.keySet();
+				System.out.println(llaves);
+				
+				String llaveEs = null;
+				List<String> valorCarro = null;
+
+				for (String llave : llaves){
+					valorCarro = sede3.get(llave);
+					System.out.println(valorCarro);
+					if (valorCarro.get(8).equals("vans")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				carrosEnUso.put(llaveEs, valorCarro);
+				sede1.remove(llaveEs);
+			}
+			
 			System.out.println("---------------------------------------------");
 			System.out.println(carrosEnUso);
 			System.out.println("-------------------------------------------------------------");
 			System.out.println(reservas);
-			
 		}
+	
 }
