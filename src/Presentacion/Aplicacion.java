@@ -6,18 +6,22 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Logica.AdminGeneral;
 import Logica.AdminLocal;
 import Logica.Categoria;
 import Logica.ClienteRegistrado;
 import Logica.Empleado;
+import Logica.Reserva;
 import Logica.Sede;
 import Logica.Vehiculo;
 import Logica.BaseDatos;
 
 public class Aplicacion 
 {
+	private static final String String = null;
+	private static final java.lang.String List = null;
 	private Categoria categoria;
 	private BaseDatos baseDatos;
 	private ClienteRegistrado cliente;
@@ -63,6 +67,14 @@ public class Aplicacion
 				int opcion_seleccionada = Integer.parseInt(input("Por favor seleccione una opción"));
 				if(opcion_seleccionada == 1)
 					ejecutarInicioSesion();
+				else if (opcion_seleccionada == 3) {
+					System.out.println("Saliendo de la aplicación ...");
+					continuar = false;
+				} else if (baseDatos == null && cliente == null) {
+					System.out.println("Para poder ejecutar esta opción primero debe cargar un archivo.");
+				} else {
+					System.out.println("Por favor seleccione una opción válida.");
+				}
 			}
 			catch (NumberFormatException e)
 			{
@@ -81,6 +93,7 @@ public class Aplicacion
 		System.out.println("\nOpciones de la aplicación\n");
 		System.out.println("1. Iniciar Sesión");
 		System.out.println("2. Crear Cuenta");
+		System.out.println("3. Salir");
 	}
 
 	public void ejecutarInicioSesion()
@@ -108,6 +121,8 @@ public class Aplicacion
 				{
 					actual = infoUsuario.get(i); 
 					if(actual.equals(contraseña))
+					{	boolean terminoDeUsarApp = false;
+					while (terminoDeUsarApp == false)
 					{
 						System.out.println("\nA. Reservar Vehiculo");
 						System.out.println("\nB. Alquilar Vehiculo");
@@ -116,19 +131,32 @@ public class Aplicacion
 						String opcion = input("\nPor favor seleccione una opción");
 						if(opcion.equals("A")) {
 							reservarVehiculo();
+							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("B")) {
 							alquilarVehiculo();
+							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("C")) {
 							agregarConductorAdicional();
+							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
-						
-					}
 					
+					}	
 				}
-				
+					
 			}
+				
+		}
 			else
 			{
 				System.out.println("No se encontro el usuario ingresado :(");
@@ -152,24 +180,44 @@ public class Aplicacion
 					actual = infoEmpleados.get(i); 
 					if(actual.equals(contraseña))
 					{
+						boolean terminoDeUsarApp = false;
+						while (terminoDeUsarApp == false)
+						{
 						System.out.println("\nA. Registrar Compra Nuevos Vehiculos");
 						System.out.println("\nB. Dar de Baja a un Vehiculo");
-						System.out.println("\nC. Validar Ubicacion");
+						System.out.println("\nC. Informacion Tiempo Real");
 						System.out.println("\nD. Gestionar Sede");
 
 						String opcion = input("\nPor favor seleccione una opción");
 						if(opcion.equals("A")) {
 							registrarCompraNuevosVehiculos();
+							System.out.println("1. Continuar en la vista del AdminGeneral");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("B")) {
 							darBajaVehiculo();
+							System.out.println("1. Continuar en la vista del AdminGeneral");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("C")) {
-							ubicacion();
+							informacionTiempoReal();
+							System.out.println("1. Continuar en la vista del AdminGeneral");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if (opcion.equals("D")) {
 							gestionarSede();
+							System.out.println("1. Continuar en la vista del AdminGeneral");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
+					}
 					}
 					
 				}
@@ -198,6 +246,9 @@ public class Aplicacion
 					actual = infoEmpleados.get(i); 
 					if(actual.equals(contraseña))
 					{
+						boolean terminoDeUsarApp = false;
+						while (terminoDeUsarApp == false)
+						{
 						System.out.println("\nA. Registrar Empleados");
 						System.out.println("\nB. Gestionar Informacion Empleados");
 						System.out.println("\nC. Crear Usuarios");
@@ -206,13 +257,26 @@ public class Aplicacion
 						String opcion = input("\nPor favor seleccione una opción");
 						if(opcion.equals("A")) {
 							registrarEmpleado();
+							System.out.println("1. Continuar en la vista del AdminLocal");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("B")) {
 							gestionarInfoEmpleados();
+							System.out.println("1. Continuar en la vista del AdminLocal");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("C")) {
 							crearUsuarios();
+							System.out.println("1. Continuar en la vista del AdminLocal");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
+					}
 					}
 					
 				}
@@ -241,6 +305,9 @@ public class Aplicacion
 					actual = infoEmpleados.get(i); 
 					if(actual.equals(contraseña))
 					{
+						boolean terminoDeUsarApp = false;
+						while (terminoDeUsarApp == false)
+						{
 						System.out.println("\nA. Entrega Vehiculo");
 						System.out.println("\nB. Devolucion Vehiculo");
 						System.out.println("\nC. Registro Conductor Adicional");
@@ -249,16 +316,33 @@ public class Aplicacion
 						String opcion = input("\nPor favor seleccione una opción");
 						if(opcion.equals("A")) {
 							entregaVehiculo();
+							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("B")) {
 							devolucionVehiculo();
+							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("C")) {
 							registroConductorAdicional();
+							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("D")) {
 							actualizarEstadoVehiculo();
+							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
+					}
 					}
 					
 				}
@@ -309,16 +393,19 @@ public class Aplicacion
 	public void registrarCompraNuevosVehiculos()
 	{
 		System.out.println("\n Por favor sigue los pasos para poder registrar el Nuevo Vehiculo");
-		String placa = input("");
-		String marca = input("");
-		String modelo = input("");
-		String ano = input("");
-		String color = input("");
-		String transmision = input("");
-		String ubicacion = input("");
-		String alquilado = input("");
-		String estado = input("");
-		String tipo = input("");
+		String placa = input("Por favor ingrese la placa de registro del nuevo vehiculo");
+		String marca = input("Por favor ingrese la marca del nuevo vehiculo");
+		String modelo = input("Por favor ingrese el modelo de su vehiculo (como lo llamo la marca para identificarlo)");
+		String ano = input("Por favor ingrese el año de su vehiculo");
+		String color = input("El color de su vehiculo");
+		String transmision = input("¿Que tipo de transmision es el nuevo vehiculo?");
+		String ubicacion = input("¿A que sede va a llegar el nuevo vehiculo?");
+		String alquilado = input("Por favor escriba False");
+		String estado = input("Por favor escriba Listo para validar que el nuevo vehiculo estara disponible para ser Reservado o Alquilado ");
+		String tipo = input("Y por ultimo a que categoria pertenece este nuevo vehiculo (SUV, pequeño, lujo, deportivo, vans)");
+		
+		adminGeneral.registrarCompraNuevoVehiculo(placa, marca, modelo, ano, color, transmision, ubicacion, alquilado, estado, tipo);
+		System.out.println("\n El nuevo vehiculo ya quedo registrado en la Base de Datos");
 		
 		
 	}
@@ -329,9 +416,28 @@ public class Aplicacion
 		
 	}
 	
-	public void ubicacion()
+	public void informacionTiempoReal()
 	{
+		System.out.println("\n Dependiendo de la opción que escojas podras ver los carros que hay en una sede, las reservas realizadas y los carros que estan en uso.");
+		System.out.println("1. Sede1");
+		System.out.println("2. Sede2");
+		System.out.println("3. Sede3");
+		System.out.println("4. Reservas Actuales");
+		System.out.println("5. Carros en Uso");
 		
+		int opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+		
+		if(opcion_seleccionada == 1) {
+			imprimirSede1();
+		} else if (opcion_seleccionada == 2) {
+			imprimirSede2();
+		}else if (opcion_seleccionada == 3) {
+			imprimirSede3();
+		}else if (opcion_seleccionada == 4) {
+			reservasActuales();
+		}else if (opcion_seleccionada == 5) {
+			carrosEnUso();
+		}
 	}
 	
 	public void gestionarSede()
@@ -381,7 +487,45 @@ public class Aplicacion
 	{
 		
 	}
-
+	
+	/**
+	 * Funciones Generales
+	 */
+	
+	public void imprimirSede1()
+	{
+		HashMap<String,List<String>> sede1 = baseDatos.getSede1();
+		System.out.println(sede1);
+		
+	}
+	
+	public void imprimirSede2()
+	{
+		HashMap<String,List<String>> sede2 = baseDatos.getSede2();
+		System.out.println(sede2);
+		
+	}
+	
+	public void imprimirSede3()
+	{
+		HashMap<String,List<String>> sede3 = baseDatos.getSede1();
+		System.out.println(sede3);
+		
+	}
+	
+	public void reservasActuales()
+	{
+		HashMap<Integer, ArrayList<Reserva>> actuales = cliente.getReservas();
+		System.out.println(actuales);
+		
+	}
+	
+	public void carrosEnUso()
+	{
+		HashMap<String,List<String>> enUso = cliente.getCarrosEnUso();
+		System.out.println(enUso);
+		
+	}
 
 
 	/**

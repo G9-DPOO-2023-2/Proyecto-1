@@ -27,6 +27,8 @@ public class ClienteRegistrado extends Persona
 	 */
 	private String fechaNacimiento;
 
+	
+
 	/**
 	 * Es el lugar de nacimiento del cliente registrado
 	 */
@@ -88,6 +90,54 @@ public class ClienteRegistrado extends Persona
 	public void setPaisExpedicion(String paisExpedicion) 
 	{
 		this.paisExpedicion = paisExpedicion;
+	}
+	
+	public ArrayList<Reserva> getInfoReserva() {
+		return infoReserva;
+	}
+
+	public void setInfoReserva(ArrayList<Reserva> infoReserva) {
+		this.infoReserva = infoReserva;
+	}
+
+	public HashMap<Integer, ArrayList<Reserva>> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(HashMap<Integer, ArrayList<Reserva>> reservas) {
+		this.reservas = reservas;
+	}
+
+	public int getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(int reserva) {
+		this.reserva = reserva;
+	}
+
+	public Reserva getNuevaReserva() {
+		return nuevaReserva;
+	}
+
+	public void setNuevaReserva(Reserva nuevaReserva) {
+		this.nuevaReserva = nuevaReserva;
+	}
+
+	public BaseDatos getBasedatos() {
+		return basedatos;
+	}
+
+	public void setBasedatos(BaseDatos basedatos) {
+		this.basedatos = basedatos;
+	}
+
+	public HashMap<String, List<String>> getCarrosEnUso() {
+		return carrosEnUso;
+	}
+
+	public void setCarrosEnUso(HashMap<String, List<String>> carrosEnUso) {
+		this.carrosEnUso = carrosEnUso;
 	}
 
 	//*************************************************************
