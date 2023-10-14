@@ -11,9 +11,9 @@ public class Empleado extends Persona
 		//**********************************************************
 		//Constructor
 		//**********************************************************
-		public Empleado(String nombre, String cedula, String cel, String email, int anosEmpresa, String sede, String contraseña) 
+		public Empleado(String nombre, String cedula, String cel, String email, String anosEmpresa, String sede, String contraseña) 
 		{
-			super(nombre, cedula, cel, email, anosEmpresa, contraseña); //Llama al constructor de la clase Persona
+			super(cedula, contraseña, nombre, cel, email, anosEmpresa); //Llama al constructor de la clase Persona
 			this.sede = sede;
 		}
 		

@@ -8,3 +8,8 @@
 14202535893;Carroshi;Sally Porche;3204892221;s.porche@gmail.com;6;Sede2
 12035789523;Kuchau;Lura Luna;3101148985;l.luna@gmail.com;7;Sede3
 10121452033;FranchescoBirgonilli;Sol Solecito;3589754102;s.solecito@gmail.com;4;Sede3
+
+1234;sede2;11111111113;Prueba1 ;9999999999;p.era1@gmail.com;1
+1;1;1;13;1;1;1
+sede3;pp.plablo@gmail.com;Contraseña;12345678923;Pablo pp;3333333333;5
+sede2;papa.peres@gmail.com;Contraseña2;98745612393;Perez Papa;7777777777;2

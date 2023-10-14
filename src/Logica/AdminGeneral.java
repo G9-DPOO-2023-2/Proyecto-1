@@ -16,7 +16,7 @@ public class AdminGeneral extends Persona
 	//Constructor
 	//*****************************************************************************
 	
-	public AdminGeneral(String nombre, String cedula, String cel, String email, int anosEmpresa, String contraseña) {
+	public AdminGeneral(String nombre, String cedula, String cel, String email, String anosEmpresa, String contraseña) {
 		super(nombre, cedula, cel, email, anosEmpresa,contraseña);//Llama al constructor de la clase Persona
 		infoNuevoVehiculo = new ArrayList<String>();
 	}

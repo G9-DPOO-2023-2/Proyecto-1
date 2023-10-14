@@ -28,8 +28,7 @@ public class Aplicacion
 	private BaseDatos baseDatos;
 	private ClienteRegistrado cliente;
 	private AdminGeneral adminGeneral;
-	private Licencia licencia;
-	private MetodoPago metodoPago;
+	private AdminLocal adminLocal;
 	
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
@@ -40,10 +39,10 @@ public class Aplicacion
 	{
 		categoria = new Categoria ();
 		baseDatos = new BaseDatos();
-		adminGeneral = new AdminGeneral(null, null, null, null, 0, null);
-		cliente = new ClienteRegistrado(null, null, null, null, 0, null, null, null,null);
-		licencia = new Licencia(null, null);
-		metodoPago = new MetodoPago(null, null, null, null, null);
+		adminLocal = new AdminLocal(null, null, null, null, null, null, null);
+		adminGeneral = new AdminGeneral(null, null, null, null, null, null);
+		cliente = new ClienteRegistrado(null, null, null, null, null, null, null, null,null);
+
 
 		baseDatos.cargarBaseDatos("empleados.txt", 
 								  "ClientesRegistrados.txt",
@@ -101,9 +100,11 @@ public class Aplicacion
 	 */
 	public void mostrarMenu()
 	{
+		
 		System.out.println("\nOpciones de la aplicación\n");
+		System.out.println("OJO El unico que puede crear cuentas de empleado es el AdminLocal, inicia secion para hacerlo");
 		System.out.println("1. Iniciar Sesión");
-		System.out.println("2. Crear Cuenta");
+		System.out.println("2. Crear Cuenta Nuevo Cliente");
 		System.out.println("3. Salir");
 	}
 
@@ -393,7 +394,7 @@ public class Aplicacion
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
 		
-		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,0,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
+		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
 		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
 		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
 		
@@ -446,6 +447,7 @@ public class Aplicacion
 	public void registrarCompraNuevosVehiculos()
 	{
 		System.out.println("\n Por favor sigue los pasos para poder registrar el Nuevo Vehiculo");
+		
 		String placa = input("Por favor ingrese la placa de registro del nuevo vehiculo");
 		String marca = input("Por favor ingrese la marca del nuevo vehiculo");
 		String modelo = input("Por favor ingrese el modelo de su vehiculo (como lo llamo la marca para identificarlo)");
@@ -500,16 +502,34 @@ public class Aplicacion
 
 	/**
 	 * Funciones relacionadas con los AdminLocales
+	 * @throws IOException 
 	 */
 
-	public void registrarEmpleado()
+	public void registrarEmpleado() throws IOException
 	{
+		System.out.println("\n AdminLocal por favor siga el paso a paso para poder registrar al nuevo empleado en la Base de Datos");
+		System.out.println("\n AdminLocal, no se le olvide que el username sera SU CEDULA y debe poner al final un 2 si es otroAdmin o 3 si es un empleado normal" + "\nal momento de digitar la cedula");
+		
+	
+			String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
+			String contraseña = input("\n Escriba la contraseña con la que el empleado va a iniciar sesion");
+			String nombre = input("\n Por favor escriba su nombre completo");
+			String celular = input("\n Por favor digite su numero celular");
+			String email = input("\n Por favor escriba su correo electronico");
+			String anosEmpresa = input("\n Por favor ingrese la cantidad de años que lleva en la Empresa");
+			String sede = input("\n Escriba la sede en la que va a trabajar");
+			
+			Empleado empleado = new Empleado(cedula, contraseña, nombre, celular, email, anosEmpresa, sede);
+			adminLocal.crearNuevoEmpleado(empleado);
+			System.out.println("\n Se ha creado exitosamente la nueva cuenta del empleado");
+			System.out.println("\n Para poder iniciar sesion por favor salga de la app y vuelva a entrar :) ");
+			
 		
 	}
 	
 	public void gestionarInfoEmpleados()
 	{
-		
+		 
 	}
 	
 	public void crearUsuarios() throws IOException
@@ -539,13 +559,14 @@ public class Aplicacion
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
 		
-		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,0,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
+		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
 		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
 		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
 		
 		
 		
 		baseDatos.crearCuentaCliente(cliente_nuevo, licencia, metodo);
+		System.out.println("\n Se ha creado una nueva cuenta y ya se guardo en la Base de Datos");
 		
 		System.out.println("1. Crear otra cuenta");
 		System.out.println("2. Finaizar uso de la App");

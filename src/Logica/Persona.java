@@ -29,7 +29,7 @@ public class Persona
 	/**
 	 * Es la cantidad de años que lleva un trabajador en la empresa
 	 */
-	private int anosEmpresa;
+	private String anosEmpresa;
 	
 	/**
 	 * Es la palabra o numeros que usara para iniciar sesion
@@ -39,7 +39,7 @@ public class Persona
 	//********************************************************************
 	//Constructor
 	//********************************************************************
-	public Persona(String nombre, String cedula, String cel, String email, int anosEmpresa, String contraseña) 
+	public Persona(String nombre, String cedula, String cel, String email, String anosEmpresa, String contraseña) 
 	{
 		super();
 		this.nombre = nombre;
@@ -92,12 +92,12 @@ public class Persona
 		this.email = email;
 	}
 
-	public int getAnosEmpresa() 
+	public String getAnosEmpresa() 
 	{
 		return anosEmpresa;
 	}
 
-	public void setAnosEmpresa(int anosEmpresa) 
+	public void setAnosEmpresa(String anosEmpresa) 
 	{
 		this.anosEmpresa = anosEmpresa;
 	}
