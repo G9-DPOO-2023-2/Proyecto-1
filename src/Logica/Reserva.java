@@ -66,7 +66,4 @@ public class Reserva
 	public void setFechaHoraEntrega(String fechaHoraEntrega) {
 		this.fechaHoraEntrega = fechaHoraEntrega;
 	}
-	
-	
-	
 }
