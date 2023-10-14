@@ -278,5 +278,13 @@ public class BaseDatos
 					+ ";" + medioPago + ";" + cvc + ";" + numeroTarjeta + ";" + fechaVencimientoTarjeta + ";" + banco);
 			br.close();
 		}
+		
+		public void agregarNuevoVehiculo(Vehiculo nuevo_vehiculo) throws IOException
+		{
+			FileWriter file = new FileWriter ("vehiculos.txt", true);
+			BufferedWriter br = new BufferedWriter(file);
+			
+			
+		}
 
 	}

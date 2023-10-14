@@ -263,7 +263,7 @@ public class Aplicacion
 						{
 						System.out.println("\nA. Registrar Empleados");
 						System.out.println("\nB. Gestionar Informacion Empleados");
-						System.out.println("\nC. Crear Usuarios");
+						System.out.println("\nC. Crear Usuarios Clientes");
 						
 
 						String opcion = input("\nPor favor seleccione una opción");
@@ -394,7 +394,7 @@ public class Aplicacion
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
 		
-		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
+		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre,cedula,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
 		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
 		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
 		
@@ -519,7 +519,7 @@ public class Aplicacion
 			String anosEmpresa = input("\n Por favor ingrese la cantidad de años que lleva en la Empresa");
 			String sede = input("\n Escriba la sede en la que va a trabajar");
 			
-			Empleado empleado = new Empleado(cedula, contraseña, nombre, celular, email, anosEmpresa, sede);
+			Empleado empleado = new Empleado(nombre, cedula, celular, email, anosEmpresa, contraseña, sede);
 			adminLocal.crearNuevoEmpleado(empleado);
 			System.out.println("\n Se ha creado exitosamente la nueva cuenta del empleado");
 			System.out.println("\n Para poder iniciar sesion por favor salga de la app y vuelva a entrar :) ");
@@ -582,7 +582,7 @@ public class Aplicacion
 	
 	public void entregaVehiculo()
 	{
-		
+		System.out.println("Vehiculo Entregado");
 	}
 
 	public void devolucionVehiculo()

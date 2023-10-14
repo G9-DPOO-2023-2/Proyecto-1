@@ -15,7 +15,7 @@ public class AdminLocal extends Persona
 	//**********************************************************
 	//Constructor
 	//**********************************************************
-	public AdminLocal(String nombre, String cedula, String cel, String email, String anosEmpresa, String sede, String contraseña) 
+	public AdminLocal(String nombre, String cedula, String cel, String email, String anosEmpresa, String contraseña, String sede) 
 	{
 		super(nombre, cedula, cel, email, anosEmpresa, contraseña); //Llama al constructor de la clase Persona
 		this.sede = sede;
@@ -48,7 +48,9 @@ public class AdminLocal extends Persona
 		String contraseña = nuevo_empleado.getContraseña();
 		String sede = nuevo_empleado.getSede();
 		
-		br.write("\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede);
+		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		
+		br.write(rta);
 		br.close();
 		
 		
