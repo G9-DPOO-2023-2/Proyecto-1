@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import Logica.AdminGeneral;
 import Logica.AdminLocal;
@@ -17,6 +17,8 @@ import Logica.Reserva;
 import Logica.Sede;
 import Logica.Vehiculo;
 import Logica.BaseDatos;
+import Logica.Licencia;
+import Logica.MetodoPago;
 
 public class Aplicacion 
 {
@@ -26,16 +28,22 @@ public class Aplicacion
 	private BaseDatos baseDatos;
 	private ClienteRegistrado cliente;
 	private AdminGeneral adminGeneral;
+	private Licencia licencia;
+	private MetodoPago metodoPago;
+	
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
+
 	
 
 	public Aplicacion()
 	{
 		categoria = new Categoria ();
 		baseDatos = new BaseDatos();
-		adminGeneral = new AdminGeneral(null, 0, 0, null, 0);
-		cliente = new ClienteRegistrado(null, 0, 0, null, 0, null, null, null);
+		adminGeneral = new AdminGeneral(null, null, null, null, 0, null);
+		cliente = new ClienteRegistrado(null, null, null, null, 0, null, null, null,null);
+		licencia = new Licencia(null, null);
+		metodoPago = new MetodoPago(null, null, null, null, null);
 
 		baseDatos.cargarBaseDatos("empleados.txt", 
 								  "ClientesRegistrados.txt",
@@ -53,8 +61,9 @@ public class Aplicacion
 	 * Ejecuta la aplicación: le muestra el menú al usuario y la pide que ingrese
 	 * una opción, y ejecuta la opción seleccionada por el usuario. Este proceso se
 	 * repite hasta que el usuario seleccione la opción de abandonar la aplicación.
+	 * @throws IOException 
 	 */
-	public void ejecutarAplicacion()
+	public void ejecutarAplicacion() throws IOException
 	{
 		System.out.println("\nOpciones sobre el menu");
 
@@ -67,6 +76,8 @@ public class Aplicacion
 				int opcion_seleccionada = Integer.parseInt(input("Por favor seleccione una opción"));
 				if(opcion_seleccionada == 1)
 					ejecutarInicioSesion();
+				else if (opcion_seleccionada == 2)
+					ejecutarCrearUsuario ();
 				else if (opcion_seleccionada == 3) {
 					System.out.println("Saliendo de la aplicación ...");
 					continuar = false;
@@ -355,6 +366,39 @@ public class Aplicacion
 		}
 
 	}
+	
+	public void ejecutarCrearUsuario () throws IOException
+	{
+		System.out.println("\n Por favor siga las indicaciones para crear su cuenta");
+		
+		
+		
+		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
+		String nombre = input("\n Por favor escriba su nombre completo");
+		String celular = input("\n Por favor digite su numero celular");
+		String email = input("\n Por favor escriba su correo electronico");
+		String contraseña = input("\n Escriba la contraseña con la que le gustaria iniciar sesión desde ahora en adelante");
+		String fechaNacimiento = input("\n Escriba cuando nacio en formato (día-mes-año)");
+		String nacionalidad = input("\n Escriba su país de nacimineto");
+		String lugarExpedicionCC = input("\n Escriba el país donde saco su Cedula o Documento de Identificacion");
+		
+		String numeroLicencia = input("\n Escriba el numero de su licencia");
+		String fechaVencimientoLicencia = input("\n Escriba la fecha en que se le vence la licencia en formato (día-mes-año)");
+		
+		String medioPago = input("\n Por favor escriba si usa una Trjeta de Credito o Tarjeta Debito");
+		String cvc = input("\n Por favor digite el codigo de seguridsad de su Tarjeta");
+		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
+		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
+		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
+		
+		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,0,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
+		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
+		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
+		
+		
+		
+		baseDatos.crearCuentaCliente(cliente_nuevo, licencia, metodo);
+	}
 
 	/**
 	 * Funciones relacionadas al cliente 
@@ -550,7 +594,7 @@ public class Aplicacion
 		}
 		return null;
 	}
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		Aplicacion consola = new Aplicacion();
 		consola.ejecutarAplicacion();

@@ -1,34 +1,74 @@
 package Logica;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MetodoPago {
+	//*****************************************************
+	//Atributos
+	//*****************************************************
 	
-	String nombre;
-	String apellido;
+	String tipoTarjeta;
 	String codigoDeSeguridad;
-	String codigoTarjeta;
-	HashMap<String, ArrayList<String>> infoMP;
+	String numeroTarjeta;
+	String banco;
+	String fechaVencimientoTarjeta;
 	
-	public MetodoPago(String nombre, String apellido, String codigoDeSeguridad, String codigoTarjeta) {
+	//************************************************************
+	//constructor
+	//************************************************************
+	
+	public MetodoPago(String tipoTarjeta, String codigoDeSeguridad, String numeroTarjeta, String banco, String fechaVencimientoTarjeta) {
 		super();
-		this.nombre = nombre;
-		this.apellido = apellido;
+		this.tipoTarjeta = tipoTarjeta;
 		this.codigoDeSeguridad = codigoDeSeguridad;
-		this.codigoTarjeta = codigoTarjeta;
+		this.numeroTarjeta = numeroTarjeta;
+		this.banco = banco;
+		this.fechaVencimientoTarjeta = fechaVencimientoTarjeta;
+		
+	}
+	
+	//**********************************************************************
+	//Getters and Setters
+	//**********************************************************************
+	
+	public String getTipoTarjeta() {
+		return tipoTarjeta;
 	}
 
-	public void agregarInfoTarjeta(String nombre, String apellido, String codigoDeSeguridad, String codigoTarjeta) {
-		
-		this.infoMP = new HashMap<String, ArrayList<String>>();
-		ArrayList<String> listaInfo = new ArrayList<String>();
-		
-		listaInfo.add(nombre);
-		listaInfo.add(apellido);
-		listaInfo.add(codigoDeSeguridad);
-		
-		infoMP.put(codigoTarjeta, listaInfo);
+	public void setTipoTarjeta(String tipoTarjeta) {
+		this.tipoTarjeta = tipoTarjeta;
 	}
+
+	public String getCodigoDeSeguridad() {
+		return codigoDeSeguridad;
+	}
+
+	public void setCodigoDeSeguridad(String codigoDeSeguridad) {
+		this.codigoDeSeguridad = codigoDeSeguridad;
+	}
+
+	public String getNumeroTarjeta() {
+		return numeroTarjeta;
+	}
+
+	public void setNumeroTarjeta(String numeroTarjeta) {
+		this.numeroTarjeta = numeroTarjeta;
+	}
+
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+
+	public String getFechaVencimientoTarjeta() {
+		return fechaVencimientoTarjeta;
+	}
+
+	public void setFechaVencimientoTarjeta(String fechaVencimientoTarjeta) {
+		this.fechaVencimientoTarjeta = fechaVencimientoTarjeta;
+	}
+	
 
 }

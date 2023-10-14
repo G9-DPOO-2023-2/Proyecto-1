@@ -13,12 +13,12 @@ public class Persona
 	/**
 	 * Es el identificador de cada una de las personas
 	 */
-	private long cedula;
+	private String cedula;
 	
 	/**
 	 * Es el número telefonico por el cual se contacta a una persona
 	 */
-	private long cel;
+	private String cel;
 	
 	/**
 	 * Es el medio por el cual se le pueden enviar correos y posiblemente sera 
@@ -31,10 +31,15 @@ public class Persona
 	 */
 	private int anosEmpresa;
 	
+	/**
+	 * Es la palabra o numeros que usara para iniciar sesion
+	 */
+	private String contraseña;
+	
 	//********************************************************************
 	//Constructor
 	//********************************************************************
-	public Persona(String nombre, long cedula, long cel, String email, int anosEmpresa) 
+	public Persona(String nombre, String cedula, String cel, String email, int anosEmpresa, String contraseña) 
 	{
 		super();
 		this.nombre = nombre;
@@ -42,6 +47,7 @@ public class Persona
 		this.cel = cel;
 		this.email = email;
 		this.anosEmpresa = anosEmpresa;
+		this.contraseña = contraseña;
 	}
 	
 	//*******************************************************************************************
@@ -57,21 +63,21 @@ public class Persona
 		this.nombre = nombre;
 	}
 
-	public long getCedula() 
+	public String getCedula() 
 	{
 		return cedula;
 	}
 
-	public void setCedula(long cedula) 
+	public void setCedula(String cedula) 
 	{
 		this.cedula = cedula;
 	}
 
-	public long getCel() {
+	public String getCel() {
 		return cel;
 	}
 
-	public void setCel(long cel) 
+	public void setCel(String cel) 
 	{
 		this.cel = cel;
 	}
@@ -95,4 +101,14 @@ public class Persona
 	{
 		this.anosEmpresa = anosEmpresa;
 	}
+
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+	
+	
 }

@@ -2,10 +2,18 @@ package Logica;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+
+
+
+
 
 public class BaseDatos 
 {
@@ -23,6 +31,9 @@ public class BaseDatos
 		private HashMap<String, List<String>> sede2;
 		private HashMap<String, List<String>> sede3;
 		
+		private MetodoPago metodoPago;
+		private Licencia licencia;
+		
 		//**********************************************************************************
 		//Constructor
 		//**********************************************************************************
@@ -34,6 +45,9 @@ public class BaseDatos
 			sede1 = new HashMap<>();
 			sede2 = new HashMap<>();
 			sede3 = new HashMap<>();
+			
+			this.licencia = new Licencia(null, null);
+			this.metodoPago = new MetodoPago(null, null, null, null, null);
 		}
 		
 		//Metodos OJO recomendable poner setters and getters
@@ -235,9 +249,34 @@ public class BaseDatos
 	        System.out.println(sede3);
 		}
 		
-		public void crearCuentaCliente ()
+		public void crearCuentaCliente (ClienteRegistrado nuevo_cliente, Licencia licencia, MetodoPago metodoPago) throws IOException 
 		{
+			FileWriter file = new FileWriter ("ClientesRegistrados.txt", true);
+			BufferedWriter br = new BufferedWriter(file);
 			
+			String cedula = nuevo_cliente.getCedula();
+			String nombre = nuevo_cliente.getNombre();
+			String celular = nuevo_cliente.getCel();
+			String email = nuevo_cliente.getEmail();
+			String contraseña = nuevo_cliente.getContraseña();
+			String fechaNacimiento = nuevo_cliente.getFechaNacimiento();
+			String nacionalidad = nuevo_cliente.getNacionalidad();
+			String lugarExpedicionCC = nuevo_cliente.getPaisExpedicion();
+			
+			String numeroLicencia = licencia.getNumeroLicencia();
+			String fechaVencimientoLicencia = licencia.getFechaVencimientoLicencia();
+			
+			String medioPago = metodoPago.getTipoTarjeta();
+			String cvc = metodoPago.getCodigoDeSeguridad();
+			String numeroTarjeta = metodoPago.getNumeroTarjeta();
+			String fechaVencimientoTarjeta = metodoPago.getFechaVencimientoTarjeta();
+			String banco = metodoPago.getBanco();
+			
+			
+			br.write("\n" + cedula + ";" + nombre + ";" + celular + ";" + email + ";" + contraseña 
+					+ ";" + fechaNacimiento + ";" + nacionalidad + ";" + lugarExpedicionCC + ";" + numeroLicencia + ";" + fechaVencimientoLicencia
+					+ ";" + medioPago + ";" + cvc + ";" + numeroTarjeta + ";" + fechaVencimientoTarjeta + ";" + banco);
+			br.close();
 		}
 
 	}
