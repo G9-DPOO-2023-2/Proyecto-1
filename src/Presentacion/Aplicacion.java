@@ -22,8 +22,7 @@ import Logica.MetodoPago;
 
 public class Aplicacion 
 {
-	private static final String String = null;
-	private static final java.lang.String List = null;
+
 	private Categoria categoria;
 	private BaseDatos baseDatos;
 	private ClienteRegistrado cliente;
