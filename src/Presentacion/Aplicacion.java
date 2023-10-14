@@ -372,7 +372,9 @@ public class Aplicacion
 		System.out.println("\n Por favor siga las indicaciones para crear su cuenta");
 		
 		
-		
+		boolean terminoDeUsarApp = false;
+		while (terminoDeUsarApp == false)
+		{
 		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
 		String nombre = input("\n Por favor escriba su nombre completo");
 		String celular = input("\n Por favor digite su numero celular");
@@ -398,6 +400,13 @@ public class Aplicacion
 		
 		
 		baseDatos.crearCuentaCliente(cliente_nuevo, licencia, metodo);
+		
+		System.out.println("1. Crear otra cuenta");
+		System.out.println("2. Finaizar uso de la App");
+		System.out.println("\n Para poder iniciar sesion por favor salga de la app y vuelva a entrar :) ");
+		int opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+		terminoDeUsarApp = opcion_seleccionada ==2;
+		}
 	}
 
 	/**

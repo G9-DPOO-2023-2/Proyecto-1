@@ -45,7 +45,7 @@ public class ClienteRegistrado extends Persona
 	public ClienteRegistrado(String nombre, String cedula, String cel, String email, int anosEmpresa, String fechaNacimiento, 
 			String nacionalidad, String paisExpedicion, String contraseña) //Llama al constructor de la clase Persona
 	{
-		super(nombre, cedula, cel, email, anosEmpresa, contraseña);
+		super(cedula, nombre, cel, email, anosEmpresa, contraseña);
 		this.fechaNacimiento = fechaNacimiento;
 		this.nacionalidad = nacionalidad;
 		this.paisExpedicion = paisExpedicion;
