@@ -107,7 +107,7 @@ public class Aplicacion
 		System.out.println("3. Salir");
 	}
 
-	public void ejecutarInicioSesion()
+	public void ejecutarInicioSesion() throws IOException
 	{
 		System.out.println("¿Como desearia iniciar sesión?");
 		System.out.println("1. Cliente");
@@ -512,9 +512,47 @@ public class Aplicacion
 		
 	}
 	
-	public void crearUsuarios()
+	public void crearUsuarios() throws IOException
 	{
+
+		System.out.println("\n Por favor siga las indicaciones para crear su cuenta");
 		
+		
+		boolean terminoDeUsarApp = false;
+		while (terminoDeUsarApp == false)
+		{
+		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
+		String nombre = input("\n Por favor escriba su nombre completo");
+		String celular = input("\n Por favor digite su numero celular");
+		String email = input("\n Por favor escriba su correo electronico");
+		String contraseña = input("\n Escriba la contraseña con la que le gustaria iniciar sesión desde ahora en adelante");
+		String fechaNacimiento = input("\n Escriba cuando nacio en formato (día-mes-año)");
+		String nacionalidad = input("\n Escriba su país de nacimineto");
+		String lugarExpedicionCC = input("\n Escriba el país donde saco su Cedula o Documento de Identificacion");
+		
+		String numeroLicencia = input("\n Escriba el numero de su licencia");
+		String fechaVencimientoLicencia = input("\n Escriba la fecha en que se le vence la licencia en formato (día-mes-año)");
+		
+		String medioPago = input("\n Por favor escriba si usa una Trjeta de Credito o Tarjeta Debito");
+		String cvc = input("\n Por favor digite el codigo de seguridsad de su Tarjeta");
+		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
+		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
+		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
+		
+		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,0,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
+		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
+		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
+		
+		
+		
+		baseDatos.crearCuentaCliente(cliente_nuevo, licencia, metodo);
+		
+		System.out.println("1. Crear otra cuenta");
+		System.out.println("2. Finaizar uso de la App");
+		System.out.println("\n Para poder iniciar sesion por favor salga de la app y vuelva a entrar :) ");
+		int opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+		terminoDeUsarApp = opcion_seleccionada ==2;
+		}
 	}
 
 	/**
