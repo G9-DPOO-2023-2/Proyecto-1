@@ -452,12 +452,20 @@ public class Aplicacion
 
 	public void alquilarVehiculo()
 	{
-
+		
 	}
 
 	public void agregarConductorAdicional()
 	{
-		System.out.println("HolaMundo!");
+		String rta = input("¿Desea agregar un conductor adicional? (Si-No)");
+		
+		if(rta.equals("Si")) {
+			System.out.println("Al momento de recoger el vehiculo un empleado le pedira la informacion para registrar los conductores adicionales" + "\n(Por conductor adicional se cobra 120.000 mil cop )");
+		}else if (rta.equals("No")) {
+			System.out.println("Perfecto, el unico que podra manejar el vehiculo sera la persona que realizo la reserva. ");
+		}else {
+			System.out.println("No ingreso una opcion valida, trate otra vez");
+		}
 	}
 
 	/**
