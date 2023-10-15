@@ -624,9 +624,7 @@ public class Aplicacion
 		System.out.println("\n Por favor siga las indicaciones para crear la cuenta del nuevo cliente");
 		
 		
-		boolean terminoDeUsarApp = false;
-		while (terminoDeUsarApp == false)
-		{
+	
 		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
 		String nombre = input("\n Por favor escriba su nombre completo");
 		String celular = input("\n Por favor digite su numero celular");
@@ -645,7 +643,7 @@ public class Aplicacion
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
 		
-		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(cedula,nombre,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
+		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre,cedula,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
 		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
 		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
 		
@@ -654,12 +652,8 @@ public class Aplicacion
 		baseDatos.crearCuentaCliente(cliente_nuevo, licencia, metodo);
 		System.out.println("\n Se ha creado una nueva cuenta y ya se guardo en la Base de Datos");
 		
-		System.out.println("1. Crear otra cuenta");
-		System.out.println("2. Finaizar uso de la App");
 		System.out.println("\n Para poder iniciar sesion por favor salga de la app y vuelva a entrar :) ");
-		int opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
-		terminoDeUsarApp = opcion_seleccionada ==2;
-		}
+		
 	}
 
 	/**

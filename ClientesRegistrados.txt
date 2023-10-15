@@ -8,3 +8,4 @@ Funciona Pls;1111111111;2222222222;Fpls.@gmail.com;Colombia;123456;12-12-2025.3;
 2222222222;Prueba2;3333333333;p.era@gmail.com;Colombia;9878;12-12-2009;Colombia;88888888888;12-09-2029;Tarjeta Credito;000;0000000000000000;Fallabela;06/35
 1;1;1;1;1;1;1;1;1;1;1;1;1;1;1
 1236547892;Prueba3;5555555555;3prueba@gmail.com;Colombia;ContraseñaconAmor;13-07-2004;Colombia;74125896325;25-04-2029;Tarjeta Credito;555;9878987456325874;Davivienda;09/29
+Pepita Pinilla;8610000000;1257420000;pinilla.pepa@gmail.com;SalmonQueRicoEres;14-09-1900;Colombia;Colombia;00000044412;31-08-2036;Tarjeta Credito;369;00000000002258740;Colpatria;04/37
