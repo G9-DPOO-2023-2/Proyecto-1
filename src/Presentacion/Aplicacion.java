@@ -423,7 +423,7 @@ public class Aplicacion
 		String sedeDevolucion = input ("\n En que sede realizara la devolucion (sede1, sede2 o sede3)");
 		String fechaDevolucion = input ("\n En que fecha realizara la devolucion (día-mes-año)");
 		
-		cliente.reservarVehiculo(categoriaCarro, sede, fechaPickUp, fechaDevolucion, sedeDevolucion);
+		cliente.guardarCarrosEnUso(categoriaCarro, sede, fechaPickUp, fechaDevolucion, sedeDevolucion);
 		
 		System.out.println("\n Se ha realizado su reserva y se le realizo un cobro del 30% sobre " + "\n la tarifa calculada"); 
 		
