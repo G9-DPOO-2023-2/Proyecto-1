@@ -18,6 +18,9 @@ import Logica.Sede;
 import Logica.BaseDatos;
 import Logica.Licencia;
 import Logica.MetodoPago;
+import Logica.Vehiculo;
+
+import Procesamiento.Inventario;
 
 public class Aplicacion 
 {
@@ -29,6 +32,9 @@ public class Aplicacion
 	private AdminLocal adminLocal;
 	private Sede sede;
 	private Empleado empleado;
+	private Vehiculo vehiculo;
+	
+	private Inventario inventario;
 	
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
@@ -44,7 +50,9 @@ public class Aplicacion
 		cliente = new ClienteRegistrado(null, null, null, null, null, null, null, null,null);
 		sede = new Sede(null, null, null);
 		empleado = new Empleado(null, null, null, null, null, null, null);
-
+		vehiculo = new Vehiculo(null, null, null, null, null, null, null, null, null, null); 
+		
+		inventario = new Inventario(baseDatos, vehiculo);
 
 		baseDatos.cargarBaseDatos("empleados.txt", 
 								  "ClientesRegistrados.txt",
@@ -454,9 +462,10 @@ public class Aplicacion
 
 	/**
 	 * Funciones relacionadas con el AdminGerenal	
+	 * @throws IOException 
 	 */
 	
-	public void registrarCompraNuevosVehiculos()
+	public void registrarCompraNuevosVehiculos() throws IOException
 	{
 		System.out.println("\n Por favor sigue los pasos para poder registrar el Nuevo Vehiculo");
 		
@@ -471,7 +480,20 @@ public class Aplicacion
 		String estado = input("Por favor escriba Listo para validar que el nuevo vehiculo estara disponible para ser Reservado o Alquilado ");
 		String tipo = input("Y por ultimo a que categoria pertenece este nuevo vehiculo (SUV, pequeño, lujo, deportivo, vans)");
 		
+		Vehiculo carritoNuevo = new Vehiculo(placa, marca, modelo, ano, color, transmision, ubicacion, alquilado, estado, tipo);
 		adminGeneral.registrarCompraNuevoVehiculo(placa, marca, modelo, ano, color, transmision, ubicacion, alquilado, estado, tipo);
+		
+		inventario.agregarCarroNuevo(carritoNuevo);
+		if (ubicacion.equals("sede1")) {
+			inventario.agregarCarroNuevoSede1(carritoNuevo);
+		}else if (ubicacion.equals("sede2")) {
+			inventario.agregarCarroNuevoSede2(carritoNuevo);
+		}else if (ubicacion.equals("sede3")) {
+			inventario.agregarCarroNuevoSede3(carritoNuevo);
+		}else {
+			System.out.println("No existe una sede con ese nombre, por favor trate nuevamente de realizar el registro ");
+		}
+			
 		System.out.println("\n El nuevo vehiculo ya quedo registrado en la Base de Datos");
 		
 		

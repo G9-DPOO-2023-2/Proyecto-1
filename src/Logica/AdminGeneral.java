@@ -1,7 +1,7 @@
 package Logica;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public class AdminGeneral extends Persona
 {

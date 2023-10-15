@@ -31,8 +31,6 @@ public class BaseDatos
 		private HashMap<String, List<String>> sede2;
 		private HashMap<String, List<String>> sede3;
 		
-		private MetodoPago metodoPago;
-		private Licencia licencia;
 		
 		//**********************************************************************************
 		//Constructor
@@ -46,8 +44,6 @@ public class BaseDatos
 			sede2 = new HashMap<>();
 			sede3 = new HashMap<>();
 			
-			this.licencia = new Licencia(null, null);
-			this.metodoPago = new MetodoPago(null, null, null, null, null);
 		}
 		
 		//Metodos OJO recomendable poner setters and getters
@@ -278,14 +274,5 @@ public class BaseDatos
 					+ ";" + medioPago + ";" + cvc + ";" + numeroTarjeta + ";" + fechaVencimientoTarjeta + ";" + banco);
 			br.close();
 		}
-		
-		public void agregarNuevoVehiculo(Vehiculo nuevo_vehiculo) throws IOException
-		{
-			FileWriter file = new FileWriter ("vehiculos.txt", true);
-			BufferedWriter br = new BufferedWriter(file);
-			
-			
-		}
-		
 
 	}

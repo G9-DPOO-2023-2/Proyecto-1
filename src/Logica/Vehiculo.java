@@ -30,7 +30,7 @@ public class Vehiculo
 	 * Es año en que se saco el vehiculo, sale en su tarjeta de propiedad
 	 */
 	
-	private int ano;
+	private String ano;
 	
 	/**
 	 * Es el color del vehiculo
@@ -54,7 +54,7 @@ public class Vehiculo
 	 * Es un booleano que confirma si el vehiculo esta alquilado o no
 	 */
 	
-	private boolean alquilado;
+	private String alquilado;
 	
 	/**
 	 * Confirma si el vehiculo esta en limpieza, mantenimiento o ninguna de las dos "Listo"
@@ -85,8 +85,8 @@ public class Vehiculo
 	 * @param alquilado - La confirmacion si esta o no alquilado
 	 * @param estado - El estado del vehiculo
 	 */
-	public Vehiculo(String placa, String marca, String modelo, int ano, String color, String transmision,
-			String ubicacion, boolean alquilado, String estado, String tipo) 
+	public Vehiculo(String placa, String marca, String modelo, String ano, String color, String transmision,
+			String ubicacion, String alquilado, String estado, String tipo) 
 	{
 		super();
 		this.placa = placa;
@@ -130,7 +130,7 @@ public class Vehiculo
 	/**
 	 * @return el año del vehiculo consultado
 	 */
-	public int getAno() {
+	public String getAno() {
 		return ano;
 	}
 
@@ -158,7 +158,7 @@ public class Vehiculo
 	/**
 	 * @return si el vehiculo consultado esta o no alquilado
 	 */
-	public boolean isAlquilado() {
+	public String isAlquilado() {
 		return alquilado;
 	}
 
