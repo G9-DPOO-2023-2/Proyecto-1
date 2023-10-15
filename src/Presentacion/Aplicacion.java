@@ -15,7 +15,6 @@ import Logica.ClienteRegistrado;
 import Logica.Empleado;
 import Logica.Reserva;
 import Logica.Sede;
-import Logica.Vehiculo;
 import Logica.BaseDatos;
 import Logica.Licencia;
 import Logica.MetodoPago;
@@ -28,6 +27,7 @@ public class Aplicacion
 	private ClienteRegistrado cliente;
 	private AdminGeneral adminGeneral;
 	private AdminLocal adminLocal;
+	private Sede sede;
 	
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
@@ -41,6 +41,7 @@ public class Aplicacion
 		adminLocal = new AdminLocal(null, null, null, null, null, null, null);
 		adminGeneral = new AdminGeneral(null, null, null, null, null, null);
 		cliente = new ClienteRegistrado(null, null, null, null, null, null, null, null,null);
+		sede = new Sede(null, null, null);
 
 
 		baseDatos.cargarBaseDatos("empleados.txt", 
@@ -49,6 +50,7 @@ public class Aplicacion
 								  "sede2.txt",
 								  "sede3.txt");
 		categoria.cargarFlotilla("vehiculos.txt");
+		sede.cargarInformacionSedes("infoSede1.txt", "infoSede2.txt", "infoSede3.txt");
 		
 		clientes = baseDatos.getClientesRegistrados();
 		empleados = baseDatos.getEmpleados();
@@ -496,7 +498,22 @@ public class Aplicacion
 	
 	public void gestionarSede()
 	{
+		System.out.println("Aca podras consultar la información de cada una de las sedes de la Empresa");
+		System.out.println("1. Consultar información sede 1");
+		System.out.println("2. Consultar informacion sede 2");
+		System.out.println("3. Consultar informacion sede 3");
 		
+		int opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+		
+		if (opcion_seleccionada == 1) {
+			imprimirSedeInfo1();
+		}
+		else if (opcion_seleccionada == 2) {
+			imprimirSedeInfo2();
+		}
+		else if (opcion_seleccionada == 3) {
+			imprimirSedeInfo3();
+		}
 	}
 
 	/**
@@ -636,6 +653,29 @@ public class Aplicacion
 		HashMap<String,List<String>> enUso = cliente.getCarrosEnUso();
 		System.out.println(enUso);
 		
+	}
+	
+	public void imprimirSedeInfo1()
+	{
+		ArrayList<String> infoSede1 = sede.getInfoSede1();
+		System.out.println(infoSede1);
+		//Sede informacion;
+		//for (int i = 0; i < infoSede1.size(); i++) {
+			// informacion = infoSede1.get(i);
+		//	System.out.println((i + 1) + ": " + informacion.getHorario() + "-> " + informacion.getNombre());
+		//}
+	}
+	
+	public void imprimirSedeInfo2()
+	{
+		ArrayList<String> infoSede2 = sede.getInfoSede2();
+		System.out.println(infoSede2);
+	}
+	
+	public void imprimirSedeInfo3()
+	{
+		ArrayList<String> infoSede3 = sede.getInfoSede3();
+		System.out.println(infoSede3);
 	}
 
 
