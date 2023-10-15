@@ -55,4 +55,61 @@ public class AdminLocal extends Persona
 		
 		
 	}
+	
+	public void agregarNuevoEmpleadoSede1 (Empleado nuevo_empleado) throws IOException
+	{
+		FileWriter file = new FileWriter ("empleadosSede1.txt", true);
+		BufferedWriter br = new BufferedWriter(file);
+		
+		String cedula = nuevo_empleado.getCedula();
+		String nombre = nuevo_empleado.getNombre();
+		String celular = nuevo_empleado.getCel();
+		String email = nuevo_empleado.getEmail();
+		String anosEmpresa = nuevo_empleado.getAnosEmpresa();
+		String contraseña = nuevo_empleado.getContraseña();
+		String sede = nuevo_empleado.getSede();
+		
+		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		
+		br.write(rta);
+		br.close();
+	}
+	
+	public void agregarNuevoEmpleadoSede2 (Empleado nuevo_empleado) throws IOException
+	{
+		FileWriter file = new FileWriter ("empleadosSede2.txt", true);
+		BufferedWriter br = new BufferedWriter(file);
+		
+		String cedula = nuevo_empleado.getCedula();
+		String nombre = nuevo_empleado.getNombre();
+		String celular = nuevo_empleado.getCel();
+		String email = nuevo_empleado.getEmail();
+		String anosEmpresa = nuevo_empleado.getAnosEmpresa();
+		String contraseña = nuevo_empleado.getContraseña();
+		String sede = nuevo_empleado.getSede();
+		
+		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		
+		br.write(rta);
+		br.close();
+	}
+	
+	public void agregarNuevoEmpleadoSede3 (Empleado nuevo_empleado) throws IOException
+	{
+		FileWriter file = new FileWriter ("empleadosSede3.txt", true);
+		BufferedWriter br = new BufferedWriter(file);
+		
+		String cedula = nuevo_empleado.getCedula();
+		String nombre = nuevo_empleado.getNombre();
+		String celular = nuevo_empleado.getCel();
+		String email = nuevo_empleado.getEmail();
+		String anosEmpresa = nuevo_empleado.getAnosEmpresa();
+		String contraseña = nuevo_empleado.getContraseña();
+		String sede = nuevo_empleado.getSede();
+		
+		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		
+		br.write(rta);
+		br.close();
+	}
 }

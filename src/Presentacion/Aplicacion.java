@@ -28,6 +28,7 @@ public class Aplicacion
 	private AdminGeneral adminGeneral;
 	private AdminLocal adminLocal;
 	private Sede sede;
+	private Empleado empleado;
 	
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
@@ -42,6 +43,7 @@ public class Aplicacion
 		adminGeneral = new AdminGeneral(null, null, null, null, null, null);
 		cliente = new ClienteRegistrado(null, null, null, null, null, null, null, null,null);
 		sede = new Sede(null, null, null);
+		empleado = new Empleado(null, null, null, null, null, null, null);
 
 
 		baseDatos.cargarBaseDatos("empleados.txt", 
@@ -51,6 +53,7 @@ public class Aplicacion
 								  "sede3.txt");
 		categoria.cargarFlotilla("vehiculos.txt");
 		sede.cargarInformacionSedes("infoSede1.txt", "infoSede2.txt", "infoSede3.txt");
+		empleado.cargarArchivosEmpleados("empleados.txt", "empleadosSede1.txt", "empleadosSede2.txt", "empleadosSede3.txt");
 		
 		clientes = baseDatos.getClientesRegistrados();
 		empleados = baseDatos.getEmpleados();
@@ -162,6 +165,8 @@ public class Aplicacion
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada ==2;
+						}else {
+							System.out.println("No es una opcion valida, trate otra vez");
 						}
 					
 					}	
@@ -229,6 +234,8 @@ public class Aplicacion
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada ==2;
+						}else {
+							System.out.println("No es una opcion valida, trate otra vez");
 						}
 					}
 					}
@@ -288,6 +295,8 @@ public class Aplicacion
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada ==2;
+						}else {
+							System.out.println("No es una opcion valida, trate otra vez");
 						}
 					}
 					}
@@ -354,6 +363,8 @@ public class Aplicacion
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada ==2;
+						}else {
+							System.out.println("No es una opcion valida, trate otra vez");
 						}
 					}
 					}
@@ -493,6 +504,8 @@ public class Aplicacion
 			reservasActuales();
 		}else if (opcion_seleccionada == 5) {
 			carrosEnUso();
+		}else {
+			System.out.println("No es una opcion valida, trate otra vez");
 		}
 	}
 	
@@ -513,6 +526,8 @@ public class Aplicacion
 		}
 		else if (opcion_seleccionada == 3) {
 			imprimirSedeInfo3();
+		}else {
+			System.out.println("No es una opcion valida, trate otra vez");
 		}
 	}
 
@@ -537,6 +552,20 @@ public class Aplicacion
 			
 			Empleado empleado = new Empleado(nombre, cedula, celular, email, anosEmpresa, contraseña, sede);
 			adminLocal.crearNuevoEmpleado(empleado);
+			
+			if (sede.equals("sede1"))
+			{
+				adminLocal.agregarNuevoEmpleadoSede1(empleado);
+			}else if (sede.equals("sede2")) {
+				adminLocal.agregarNuevoEmpleadoSede2(empleado);
+			}else if (sede.equals("sede3")) {
+				adminLocal.agregarNuevoEmpleadoSede3(empleado);
+			}else {
+				System.out.println("No existe una sede con ese nombre, por favor trate nuevamente de realizar el registro ");
+			}
+			
+			
+			
 			System.out.println("\n Se ha creado exitosamente la nueva cuenta del empleado");
 			System.out.println("\n Para poder iniciar sesion por favor salga de la app y vuelva a entrar :) ");
 			
@@ -545,13 +574,32 @@ public class Aplicacion
 	
 	public void gestionarInfoEmpleados()
 	{
+		 System.out.println("Aca podra ver las listas de los empleados por sede o a todos los empleados de la empresa");
+		 System.out.println("1. Lista empleados toda la Empresa");
+		 System.out.println("2. Lista empleados sede 1");
+		 System.out.println("3. Lista empleados sede 2");
+		 System.out.println("4. Lista empleados sede 3");
+		 
+		 int opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+		 
+		 if(opcion_seleccionada == 1) {
+			 imprimirEmpleados();
+		 }else if (opcion_seleccionada == 2) {
+			 imprimirEmpleadosSede1();
+		 }else if (opcion_seleccionada == 3) {
+			 imprimirEmpleadosSede2();
+		 }else if (opcion_seleccionada == 4) {
+			 imprimirEmpleadosSede3();
+		 }else {
+			 System.out.println("No es una opcion valida, trate otra vez");
+		 }
 		 
 	}
 	
 	public void crearUsuarios() throws IOException
 	{
 
-		System.out.println("\n Por favor siga las indicaciones para crear su cuenta");
+		System.out.println("\n Por favor siga las indicaciones para crear la cuenta del nuevo cliente");
 		
 		
 		boolean terminoDeUsarApp = false;
@@ -657,25 +705,76 @@ public class Aplicacion
 	
 	public void imprimirSedeInfo1()
 	{
-		ArrayList<String> infoSede1 = sede.getInfoSede1();
-		System.out.println(infoSede1);
-		//Sede informacion;
-		//for (int i = 0; i < infoSede1.size(); i++) {
-			// informacion = infoSede1.get(i);
-		//	System.out.println((i + 1) + ": " + informacion.getHorario() + "-> " + informacion.getNombre());
-		//}
+		ArrayList<Sede> infoSede1 = sede.getInfoSede1();
+		Sede informacion;
+		for (int i = 0; i < infoSede1.size(); i++) {
+			 informacion = infoSede1.get(i);
+			System.out.println((i + 1) + ": " + informacion.getHorario() + "-> " + informacion.getNombre());
+		}
 	}
 	
 	public void imprimirSedeInfo2()
 	{
-		ArrayList<String> infoSede2 = sede.getInfoSede2();
-		System.out.println(infoSede2);
+		ArrayList<Sede> infoSede2 = sede.getInfoSede2();
+		Sede informacion;
+		for (int i = 0; i < infoSede2.size(); i++) {
+			 informacion = infoSede2.get(i);
+			System.out.println((i + 1) + ": " + informacion.getHorario() + "-> " + informacion.getNombre());
+		}
 	}
 	
 	public void imprimirSedeInfo3()
 	{
-		ArrayList<String> infoSede3 = sede.getInfoSede3();
-		System.out.println(infoSede3);
+		ArrayList<Sede> infoSede3 = sede.getInfoSede3();
+		Sede informacion;
+		for (int i = 0; i < infoSede3.size(); i++) {
+			 informacion = infoSede3.get(i);
+			System.out.println((i + 1) + ": " + informacion.getHorario() + "-> " + informacion.getNombre());
+		}
+	}
+	
+	public void imprimirEmpleados()
+	{
+		ArrayList<Empleado> empleadosGeneral = empleado.getEmpleados();
+		Empleado empleados;
+		for (int i = 0; i < empleadosGeneral.size(); i++) {
+			 empleados = empleadosGeneral.get(i);
+			System.out.println((i + 1) + ": " + empleados.getNombre() + ";" + empleados.getCedula() + ";" + empleados.getCel() + ";" + empleados.getEmail() + ";" + empleados.getSede()
+			+ ";" + " Años en la empresa: " + empleados.getAnosEmpresa());
+		}
+	}
+	
+	public void imprimirEmpleadosSede1()
+	{
+		ArrayList<Empleado> empleadosSede1 = empleado.getEmpleadosSede1();
+		Empleado empleadoSede1;
+		for (int i = 0; i < empleadosSede1.size(); i++) {
+			 empleadoSede1 = empleadosSede1.get(i);
+			System.out.println((i + 1) + ": " + empleadoSede1.getNombre() + ";" + empleadoSede1.getCedula() + ";" + empleadoSede1.getCel() + ";" + empleadoSede1.getEmail() + ";" + empleadoSede1.getSede()
+			+ ";" + " Años en la empresa: " + empleadoSede1.getAnosEmpresa());
+		}
+	}
+	
+	public void imprimirEmpleadosSede2()
+	{
+		ArrayList<Empleado> empleadosSede2 = empleado.getEmpleadosSede2();
+		Empleado empleadoSede2;
+		for (int i = 0; i < empleadosSede2.size(); i++) {
+			 empleadoSede2 = empleadosSede2.get(i);
+			System.out.println((i + 1) + ": " + empleadoSede2.getNombre() + ";" + empleadoSede2.getCedula() + ";" + empleadoSede2.getCel() + ";" + empleadoSede2.getEmail() + ";" + empleadoSede2.getSede()
+			+ ";" + " Años en la empresa: " + empleadoSede2.getAnosEmpresa());
+		}
+	}
+	
+	public void imprimirEmpleadosSede3()
+	{
+		ArrayList<Empleado> empleadosSede3 = empleado.getEmpleadosSede3();
+		Empleado empleadoSede3;
+		for (int i = 0; i < empleadosSede3.size(); i++) {
+			 empleadoSede3 = empleadosSede3.get(i);
+			System.out.println((i + 1) + ": " + empleadoSede3.getNombre() + ";" + empleadoSede3.getCedula() + ";" + empleadoSede3.getCel() + ";" + empleadoSede3.getEmail() + ";" + empleadoSede3.getSede()
+			+ ";" + " Años en la empresa: " + empleadoSede3.getAnosEmpresa());
+		}
 	}
 
 

@@ -10,9 +10,9 @@ public class Sede
 	//Atributos
 	//****************************************************************************
 	
-	private ArrayList<String> infoSede1;
-	private ArrayList<String> infoSede2;
-	private ArrayList<String> infoSede3;
+	private ArrayList<Sede> infoSede1;
+	private ArrayList<Sede> infoSede2;
+	private ArrayList<Sede> infoSede3;
 	
 	/**
 	 * Es el horario que todas las sedes manejan, es el mismo para todas.
@@ -48,9 +48,9 @@ public class Sede
 		this.horario = horario;
 		this.nombre = nombre;
 		this.ubicacion = ubicacion;
-		infoSede1 = new ArrayList<String>();
-		infoSede2 = new ArrayList<String>();
-		infoSede3 = new ArrayList<String>();
+		infoSede1 = new ArrayList<Sede>();
+		infoSede2 = new ArrayList<Sede>();
+		infoSede3 = new ArrayList<Sede>();
 	}
 
 	
@@ -99,34 +99,35 @@ public class Sede
 	 * @return
 	 */
 
-	public ArrayList<String> getInfoSede1() {
+	public ArrayList<Sede> getInfoSede1() {
 		return infoSede1;
 	}
 
 
-	public void setInfoSede1(ArrayList<String> infoSede1) {
+	public void setInfoSede1(ArrayList<Sede> infoSede1) {
 		this.infoSede1 = infoSede1;
 	}
 
 
-	public ArrayList<String> getInfoSede2() {
+	public ArrayList<Sede> getInfoSede2() {
 		return infoSede2;
 	}
 
 
-	public void setInfoSede2(ArrayList<String> infoSede2) {
+	public void setInfoSede2(ArrayList<Sede> infoSede2) {
 		this.infoSede2 = infoSede2;
 	}
 
 
-	public ArrayList<String> getInfoSede3() {
+	public ArrayList<Sede> getInfoSede3() {
 		return infoSede3;
 	}
 
 
-	public void setInfoSede3(ArrayList<String> infoSede3) {
+	public void setInfoSede3(ArrayList<Sede> infoSede3) {
 		this.infoSede3 = infoSede3;
 	}
+
 	
 
 	//**************************************************************
@@ -143,6 +144,8 @@ public class Sede
 		}
 	}
 
+	
+
 	public void leerArchivoInfoSede1(String archivo)
 	{
 		try {
@@ -152,9 +155,8 @@ public class Sede
 				String[] partes = linea.split(";");
 				String nombre = partes[0];
 				String valor = partes[1];
-
-				infoSede1.add(nombre);
-				infoSede1.add(valor);
+				Sede info = new Sede(nombre, valor, null);
+				infoSede1.add(info);
 
 			}
 
@@ -173,14 +175,14 @@ public class Sede
 				String[] partes = linea.split(";");
 				String nombre = partes[0];
 				String valor = partes[1];
-
-				infoSede2.add(nombre);
-				infoSede2.add(valor);
+				Sede info = new Sede(nombre, valor, null);
+				infoSede2.add(info);
 
 			}
 
 			br.close();
 		} catch (Exception e) {
+
 		}
 		}
 	
@@ -193,14 +195,14 @@ public class Sede
 				String[] partes = linea.split(";");
 				String nombre = partes[0];
 				String valor = partes[1];
-
-				infoSede3.add(nombre);
-				infoSede3.add(valor);
+				Sede info = new Sede(nombre, valor, null);
+				infoSede3.add(info);
 
 			}
 
 			br.close();
 		} catch (Exception e) {
+
 		}
 	}
 }
