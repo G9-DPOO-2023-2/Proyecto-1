@@ -349,7 +349,7 @@ public class Aplicacion
 							System.out.println("1. Continuar en la vista del Cliente");
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
-							terminoDeUsarApp = opcion_seleccionada ==2;
+							terminoDeUsarApp = opcion_seleccionada == 2;
 						}
 						else if(opcion.equals("B")) {
 							devolucionVehiculo();
@@ -508,8 +508,13 @@ public class Aplicacion
 	}
 		
 	
-	public void darBajaVehiculo()
+	public void darBajaVehiculo() throws IOException 
 	{
+		String placa = input("Escriba la placa del vehiculo al que quiere dar baja");
+		String sede = input("Escriba la sede a la que pertenece el vehiculo (sede1, sede2, sede3)");
+		
+		
+			inventario.darBajarVehiculo(placa, sede);
 		
 	}
 	
@@ -683,9 +688,13 @@ public class Aplicacion
 		
 	}
 
-	public void actualizarEstadoVehiculo()
+	public void actualizarEstadoVehiculo() throws IOException
 	{
+		String placa = input("Por favor ingrese la placa del vehiculo");
+		String sede = input("A que sede pertenece el carro devuleto (sede1, sede2, sede3)");
+		String estado = input ("A que estado va a pasar el carro");
 		
+		inventario.cambiarEstadoCarro(placa, sede, estado);
 	}
 	
 	/**

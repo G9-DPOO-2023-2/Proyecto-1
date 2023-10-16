@@ -19,6 +19,7 @@ public class AdminGeneral extends Persona
 	public AdminGeneral(String nombre, String cedula, String cel, String email, String anosEmpresa, String contraseña) {
 		super(nombre, cedula, cel, email, anosEmpresa,contraseña);//Llama al constructor de la clase Persona
 		infoNuevoVehiculo = new ArrayList<String>();
+		
 	}
 	
 	//*****************************************************************************
@@ -60,8 +61,4 @@ public class AdminGeneral extends Persona
 		}
 	}
 	
-	public void darBajaVehiculo()
-	{
-		
-	}
 }
