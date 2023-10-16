@@ -411,7 +411,7 @@ public class Aplicacion
 		String medioPago = input("\n Por favor escriba si usa una Trjeta de Credito o Tarjeta Debito");
 		String cvc = input("\n Por favor digite el codigo de seguridsad de su Tarjeta");
 		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
-		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
+		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
 		
 		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre,cedula,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
@@ -653,7 +653,7 @@ public class Aplicacion
 		String medioPago = input("\n Por favor escriba si usa una Trjeta de Credito o Tarjeta Debito");
 		String cvc = input("\n Por favor digite el codigo de seguridsad de su Tarjeta");
 		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
-		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (día-mes-año)");
+		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
 		
 		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre,cedula,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
@@ -690,11 +690,17 @@ public class Aplicacion
 
 	public void actualizarEstadoVehiculo() throws IOException
 	{
+		String fecha = null;
 		String placa = input("Por favor ingrese la placa del vehiculo");
 		String sede = input("A que sede pertenece el carro devuleto (sede1, sede2, sede3)");
-		String estado = input ("A que estado va a pasar el carro");
+		String estado = input ("A que estado va a pasar el carro (limpieza, mantenimiento o Listo)");
+		if(estado.equals("limpieza") || estado.equals("mantenimiento") )
+		{
+			fecha = input("Para que fecha el vehiculo estara disponible otra vez (día - mes - año)");
+		}
 		
 		inventario.cambiarEstadoCarro(placa, sede, estado);
+		System.out.println("El vehiculo volvera a estar Listo para: " + fecha);
 	}
 	
 	/**
