@@ -142,13 +142,6 @@ public class Categoria
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // Imprimir el HashMap
-        System.out.println(SUV);
-        System.out.println(pequeno);
-        System.out.println(lujo);
-        System.out.println(deportivo);
-        System.out.println(vans);
-        
 
     }
 	
