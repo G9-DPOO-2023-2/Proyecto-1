@@ -12,6 +12,7 @@ import Logica.AdminGeneral;
 import Logica.AdminLocal;
 import Logica.Categoria;
 import Logica.ClienteRegistrado;
+import Logica.ConductorAdicional;
 import Logica.Empleado;
 import Logica.Reserva;
 import Logica.Sede;
@@ -19,6 +20,7 @@ import Logica.BaseDatos;
 import Logica.Licencia;
 import Logica.MetodoPago;
 import Logica.Vehiculo;
+
 
 import Procesamiento.Inventario;
 
@@ -34,11 +36,12 @@ public class Aplicacion
 	private Empleado empleado;
 	private Vehiculo vehiculo;
 	
+	
 	private Inventario inventario;
 	
 	private HashMap<String, List<String>> clientes;
 	private HashMap<String, List<String>> empleados;
-
+	int contador;
 	
 
 	public Aplicacion()
@@ -51,6 +54,7 @@ public class Aplicacion
 		sede = new Sede(null, null, null);
 		empleado = new Empleado(null, null, null, null, null, null, null);
 		vehiculo = new Vehiculo(null, null, null, null, null, null, null, null, null, null); 
+
 		
 		inventario = new Inventario(baseDatos, vehiculo);
 
@@ -65,7 +69,7 @@ public class Aplicacion
 		
 		clientes = baseDatos.getClientesRegistrados();
 		empleados = baseDatos.getEmpleados();
-
+		contador = 0;
 	}
 
 	/**
@@ -436,6 +440,7 @@ public class Aplicacion
 
 	public void reservarVehiculo()
 	{
+		
 		System.out.println("\n Por favor sigue las siguientes instrucciones para realizar la reserva ");
 		
 		String categoriaCarro = input("\n Por favor ingrese la categoria que desea (suv, deportivo, lujo, pequeño o vans ) ");
@@ -446,12 +451,22 @@ public class Aplicacion
 		
 		cliente.guardarCarrosEnUso(categoriaCarro, sede, fechaPickUp, fechaDevolucion, sedeDevolucion);
 		
-		System.out.println("\n Se ha realizado su reserva y se le realizo un cobro del 30% sobre " + "\n la tarifa calculada"); 
+		System.out.println("\n Se ha realizado su reserva con el identificador numero "+ ++contador + " y se le realizo un cobro del 30% sobre " + "\n la tarifa calculada"); 
 		
 	}
 
 	public void alquilarVehiculo()
+	
 	{
+		String rta = input("¿Desea un alquiler? (Si-No)");
+		if(rta.equals("Si")) {
+			System.out.println("Si no has realizado una reserva no se te olvide que Los alquileres solamente se pueden hacer dentro de una sede");	
+		}else if (rta.equals("No")) {
+			System.out.println("Perfecto, si realizaste una reserva te esperamos para entregarte tu vehiculo");
+		}else
+		{
+			System.out.println("No ingreso una opcion valida, trate otra vez");
+		}
 		
 	}
 
@@ -678,14 +693,33 @@ public class Aplicacion
 		System.out.println("Vehiculo Entregado");
 	}
 
-	public void devolucionVehiculo()
+	public void devolucionVehiculo() throws IOException
 	{
-		
+		String numero = input("Por favor escriba el numero de reserva o servicio que se le dio ");
+		inventario.devolucionVehiculo(numero);
+		System.out.println("Se ha devuelto el carro con exito se elimino de la base de datos de Carros en Uso :)");
+		System.out.println("Para actualizar el estado del vehiculo devuleto por favor use la opcion D ");
 	}
 
-	public void registroConductorAdicional()
+	public void registroConductorAdicional() throws IOException
 	{
 		
+		System.out.println("\n Por favor siga las indicaciones para añadir un conductor Adicional a la reserva o alquiler, vamos en el servicio numero: " + contador);
+		
+		String numeroReserva = input("\n Por favor digite el numero de reserva que se le dio, si no reservo y esto es un alquiler por favor digite el valor del servicio en el que vamos");
+		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
+		String nombre = input("\n Por favor escriba su nombre completo");
+		String celular = input("\n Por favor digite su numero celular");
+		String email = input("\n Por favor escriba su correo electronico");
+		
+		String numeroLicencia = input("\n Escriba el numero de su licencia");
+		String fechaVencimientoLicencia = input("\n Escriba la fecha en que se le vence la licencia en formato (día-mes-año)");
+		
+		ConductorAdicional conductorAnanido = new ConductorAdicional(nombre,cedula,celular,email,null,null,numeroReserva);
+		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
+		
+		empleado.agregarConductorAdicional(conductorAnanido, licencia);
+		System.out.println("\n Se ha añadido un nuevo conductor y ya se guardo en la Base de Datos");
 	}
 
 	public void actualizarEstadoVehiculo() throws IOException

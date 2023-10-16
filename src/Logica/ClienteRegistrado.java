@@ -170,17 +170,14 @@ public class ClienteRegistrado extends Persona
 		}
 
 		
-			System.out.println("Dentro del bloque IF!");
+		
 
 			Set<String> llaves = sede.keySet();
-			System.out.println(llaves);
-			
 			String llaveEs = null;
 			List<String> valorCarro = null;
 
 			for (String llave : llaves){
 				valorCarro = sede.get(llave);
-				System.out.println(valorCarro);
 				if (valorCarro.get(8).equals(categoria)){
 					llaveEs = llave;
 					break;
@@ -240,6 +237,8 @@ public class ClienteRegistrado extends Persona
 			bf.flush(); 
 		}
 		
+		
+		
 		catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -252,14 +251,50 @@ public class ClienteRegistrado extends Persona
 			catch (Exception e) {
 				
 			}
+			
+			final String output =  "carrosEnUso.txt"; 
+			File file = new File(output);
+			
+			BufferedWriter bf1 = null; 
+			
+			try {
+				bf1 = new BufferedWriter(new FileWriter(file));
+				
+				ArrayList<String> tempList = new ArrayList<String>();
+				
+				for (Map.Entry<String, List<String>> entry : carrosEnUso.entrySet()) {
+					String llave = entry.getKey();
+					tempList.add(llave);
+					for (String valor : entry.getValue()) {
+						tempList.add(valor);
+					}
+					for (String info : tempList) {
+						bf1.write(info + ";");
+					}
+					bf1.newLine();
+				}
+				bf1.flush(); 
+			}
+			
+			
+			
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			finally {
+				
+				try {
+					bf1.close();
+				}
+				catch (Exception e) {
+					
+				}
 		}
 		
 		sede.remove(llaveEs);
-		
-		System.out.println("---------------------------------------------");
-		System.out.println(carrosEnUso);
-		System.out.println("-------------------------------------------------------------");
-		System.out.println(reservas);
+
+	}
 	}
 	
 }

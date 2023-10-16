@@ -48,7 +48,7 @@ public class AdminLocal extends Persona
 		String contraseña = nuevo_empleado.getContraseña();
 		String sede = nuevo_empleado.getSede();
 		
-		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		String rta = System.getProperty("line.separator") + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
 		
 		br.write(rta);
 		br.close();
@@ -69,7 +69,7 @@ public class AdminLocal extends Persona
 		String contraseña = nuevo_empleado.getContraseña();
 		String sede = nuevo_empleado.getSede();
 		
-		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		String rta = System.getProperty("line.separator") + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
 		
 		br.write(rta);
 		br.close();
@@ -88,7 +88,7 @@ public class AdminLocal extends Persona
 		String contraseña = nuevo_empleado.getContraseña();
 		String sede = nuevo_empleado.getSede();
 		
-		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		String rta = System.getProperty("line.separator") + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
 		
 		br.write(rta);
 		br.close();
@@ -107,7 +107,7 @@ public class AdminLocal extends Persona
 		String contraseña = nuevo_empleado.getContraseña();
 		String sede = nuevo_empleado.getSede();
 		
-		String rta = "\n" + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
+		String rta = System.getProperty("line.separator") + cedula + ";" + contraseña + ";" + nombre + ";" + celular + ";" + email + ";" + anosEmpresa +";" +sede;
 		
 		br.write(rta);
 		br.close();

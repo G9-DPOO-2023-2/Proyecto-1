@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.Iterator;
+
 
 import Logica.BaseDatos;
 import Logica.Vehiculo;
@@ -94,7 +94,7 @@ public class Inventario
 		String estado = carro_nuevo.getEstado();
 		String tipo = carro_nuevo.getTipo();
 		
-		br.write("\n" + placa + ";" + marca + ";" + modelo + ";" + ano + ";" + color + ";" + transmision + ";"
+		br.write(System.getProperty("line.separator") + placa + ";" + marca + ";" + modelo + ";" + ano + ";" + color + ";" + transmision + ";"
 				+ ubicacion + ";" + enUso + ";" + estado + ";" + tipo);
 		br.close();
 	}
@@ -115,7 +115,7 @@ public class Inventario
 		String estado = carro_nuevo.getEstado();
 		String tipo = carro_nuevo.getTipo();
 		
-		br.write("\n" + placa + ";" + marca + ";" + modelo + ";" + ano + ";" + color + ";" + transmision + ";"
+		br.write(System.getProperty("line.separator") + placa + ";" + marca + ";" + modelo + ";" + ano + ";" + color + ";" + transmision + ";"
 				+ ubicacion + ";" + enUso + ";" + estado + ";" + tipo);
 		br.close();
 	}
@@ -213,6 +213,11 @@ public class Inventario
 	        System.out.println("Archivo modificado con éxito.");
 		}
 		
+	}
+	
+	public void devolucionVehiculo(String numeroServicio) throws IOException
+	{
+		eliminarLineaArchivoIniciaPorPlaca("carrosEnUso.txt", numeroServicio);
 	}
 
 }

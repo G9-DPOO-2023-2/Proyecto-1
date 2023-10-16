@@ -1,2 +1,1 @@
-null;Mercedes AMG;A35 4Matic;2023;Negro;Automatico;Sede2;False;Listo;Deportivo;
-null;Mercedes AMG;A35 4Matic;2023;Negro;Automatico;Sede2;False;Listo;Deportivo;TJX_598;Chevrolet;Tracker;2019;Rojo;Mecanico;Sede1;False;Limpieza;suv;
+TJX_598;Chevrolet;Tracker;2019;Rojo;Mecanico;Sede1;False;Limpieza;suv;

@@ -1,7 +1,10 @@
 package Logica;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Empleado extends Persona
@@ -185,5 +188,23 @@ public class Empleado extends Persona
 			} catch (Exception e) {
 
 			}
+		}
+		
+		public void agregarConductorAdicional(ConductorAdicional conductorAdicional, Licencia infoLicencia) throws IOException
+		{
+			FileWriter file = new FileWriter ("conductoresAdicionales.txt", true);
+			BufferedWriter br = new BufferedWriter(file);
+			
+			String numero = conductorAdicional.getNumero();
+			String cedula = conductorAdicional.getCedula();
+			String nombre = conductorAdicional.getNombre();
+			String celular = conductorAdicional.getCel();
+			String email = conductorAdicional.getEmail();
+			
+			String numeroLicencia = infoLicencia.getNumeroLicencia();
+			String fechaVencimientoLicencia = infoLicencia.getFechaVencimientoLicencia();
+			
+			br.write(System.getProperty("line.separator")+ numero + ";" + cedula + ";" + nombre + ";" + celular + ";" + email + ";" + numeroLicencia + ";" + fechaVencimientoLicencia);
+			br.close();
 		}
 }

@@ -135,9 +135,6 @@ public class BaseDatos
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-
-	        // Imprimir el HashMap
-	        System.out.println(empleados);
 	    }
 		
 		public void cargarClientesRegistrados (String archivo)
@@ -162,9 +159,6 @@ public class BaseDatos
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-
-	        // Imprimir el HashMap
-	        System.out.println(clientesRegistrados);
 	    }
 		
 		public void cargarSede1 (String archivo)
@@ -189,8 +183,6 @@ public class BaseDatos
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-			// Imprimir el HashMap
-	        System.out.println(sede1);
 		}
 		
 		public void cargarSede2 (String archivo)
@@ -215,8 +207,6 @@ public class BaseDatos
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-			// Imprimir el HashMap
-	        System.out.println(sede2);
 		}
 		
 		public void cargarSede3 (String archivo)
@@ -241,8 +231,6 @@ public class BaseDatos
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-			// Imprimir el HashMap
-	        System.out.println(sede3);
 		}
 		
 		public void crearCuentaCliente (ClienteRegistrado nuevo_cliente, Licencia licencia, MetodoPago metodoPago) throws IOException 
@@ -269,7 +257,7 @@ public class BaseDatos
 			String banco = metodoPago.getBanco();
 			
 			
-			br.write("\n" + cedula + ";" + nombre + ";" + celular + ";" + email + ";" + contraseña 
+			br.write(System.getProperty("line.separator")+ cedula + ";" + nombre + ";" + celular + ";" + email + ";" + contraseña 
 					+ ";" + fechaNacimiento + ";" + nacionalidad + ";" + lugarExpedicionCC + ";" + numeroLicencia + ";" + fechaVencimientoLicencia
 					+ ";" + medioPago + ";" + cvc + ";" + numeroTarjeta + ";" + fechaVencimientoTarjeta + ";" + banco);
 			br.close();
