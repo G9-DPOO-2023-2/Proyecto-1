@@ -350,28 +350,28 @@ public class Aplicacion
 						String opcion = input("\nPor favor seleccione una opción");
 						if(opcion.equals("A")) {
 							entregaVehiculo();
-							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("1. Continuar en la vista del Empleado");
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada == 2;
 						}
 						else if(opcion.equals("B")) {
 							devolucionVehiculo();
-							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("1. Continuar en la vista del Empleado");
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("C")) {
 							registroConductorAdicional();
-							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("1. Continuar en la vista del Empleado");
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada ==2;
 						}
 						else if(opcion.equals("D")) {
 							actualizarEstadoVehiculo();
-							System.out.println("1. Continuar en la vista del Cliente");
+							System.out.println("1. Continuar en la vista del Empleado");
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
 							terminoDeUsarApp = opcion_seleccionada ==2;
@@ -400,9 +400,9 @@ public class Aplicacion
 		boolean terminoDeUsarApp = false;
 		while (terminoDeUsarApp == false)
 		{
-		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
+		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (10 digitos) ");
 		String nombre = input("\n Por favor escriba su nombre completo");
-		String celular = input("\n Por favor digite su numero celular");
+		String celular = input("\n Por favor digite su numero celular (10 digitos)");
 		String email = input("\n Por favor escriba su correo electronico");
 		String contraseña = input("\n Escriba la contraseña con la que le gustaria iniciar sesión desde ahora en adelante");
 		String fechaNacimiento = input("\n Escriba cuando nacio en formato (día-mes-año)");
@@ -412,7 +412,7 @@ public class Aplicacion
 		String numeroLicencia = input("\n Escriba el numero de su licencia");
 		String fechaVencimientoLicencia = input("\n Escriba la fecha en que se le vence la licencia en formato (día-mes-año)");
 		
-		String medioPago = input("\n Por favor escriba si usa una Trjeta de Credito o Tarjeta Debito");
+		String medioPago = input("\n Por favor escriba si usa una Tarjeta de Credito o Tarjeta Debito");
 		String cvc = input("\n Por favor digite el codigo de seguridsad de su Tarjeta");
 		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (mes-año)");
@@ -501,7 +501,7 @@ public class Aplicacion
 		String ubicacion = input("¿A que sede va a llegar el nuevo vehiculo?");
 		String alquilado = input("Por favor escriba False");
 		String estado = input("Por favor escriba Listo para validar que el nuevo vehiculo estara disponible para ser Reservado o Alquilado ");
-		String tipo = input("Y por ultimo a que categoria pertenece este nuevo vehiculo (SUV, pequeño, lujo, deportivo, vans)");
+		String tipo = input("Y por ultimo a que categoria pertenece este nuevo vehiculo (suv, pequeño, lujo, deportivo, vans)");
 		
 		Vehiculo carritoNuevo = new Vehiculo(placa, marca, modelo, ano, color, transmision, ubicacion, alquilado, estado, tipo);
 		adminGeneral.registrarCompraNuevoVehiculo(placa, marca, modelo, ano, color, transmision, ubicacion, alquilado, estado, tipo);
@@ -592,10 +592,10 @@ public class Aplicacion
 		System.out.println("\n AdminLocal, no se le olvide que el username sera SU CEDULA y debe poner al final un 2 si es otroAdmin o 3 si es un empleado normal" + "\nal momento de digitar la cedula");
 		
 	
-			String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
+			String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (11 digitos) ");
 			String contraseña = input("\n Escriba la contraseña con la que el empleado va a iniciar sesion");
 			String nombre = input("\n Por favor escriba su nombre completo");
-			String celular = input("\n Por favor digite su numero celular");
+			String celular = input("\n Por favor digite su numero celular (10 digitos)");
 			String email = input("\n Por favor escriba su correo electronico");
 			String anosEmpresa = input("\n Por favor ingrese la cantidad de años que lleva en la Empresa");
 			String sede = input("\n Escriba la sede en la que va a trabajar");
@@ -655,7 +655,7 @@ public class Aplicacion
 	
 		String cedula = input("\n Por favor digite su cedula/Documento de Identificacion (1o digitos) ");
 		String nombre = input("\n Por favor escriba su nombre completo");
-		String celular = input("\n Por favor digite su numero celular");
+		String celular = input("\n Por favor digite su numero celular (10 digitos)");
 		String email = input("\n Por favor escriba su correo electronico");
 		String contraseña = input("\n Escriba la contraseña con la que le gustaria iniciar sesión desde ahora en adelante");
 		String fechaNacimiento = input("\n Escriba cuando nacio en formato (día-mes-año)");
@@ -665,7 +665,7 @@ public class Aplicacion
 		String numeroLicencia = input("\n Escriba el numero de su licencia");
 		String fechaVencimientoLicencia = input("\n Escriba la fecha en que se le vence la licencia en formato (día-mes-año)");
 		
-		String medioPago = input("\n Por favor escriba si usa una Trjeta de Credito o Tarjeta Debito");
+		String medioPago = input("\n Por favor escriba si usa una Tarjeta de Credito o Tarjeta Debito");
 		String cvc = input("\n Por favor digite el codigo de seguridsad de su Tarjeta");
 		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (mes-año)");
@@ -695,10 +695,10 @@ public class Aplicacion
 
 	public void devolucionVehiculo() throws IOException
 	{
-		String numero = input("Por favor escriba el numero de reserva o servicio que se le dio ");
+		String numero = input("Por favor escriba la placa del vehiculo que sera devuelto ");
 		inventario.devolucionVehiculo(numero);
 		System.out.println("Se ha devuelto el carro con exito se elimino de la base de datos de Carros en Uso :)");
-		System.out.println("Para actualizar el estado del vehiculo devuleto por favor use la opcion D ");
+		System.out.println("Para actualizar el estado del vehiculo devuleto por favor use la opcion D nuevamente con la placa del vehiculo ");
 	}
 
 	public void registroConductorAdicional() throws IOException

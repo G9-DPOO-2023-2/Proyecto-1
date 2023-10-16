@@ -215,9 +215,9 @@ public class Inventario
 		
 	}
 	
-	public void devolucionVehiculo(String numeroServicio) throws IOException
+	public void devolucionVehiculo(String placa) throws IOException
 	{
-		eliminarLineaArchivoIniciaPorPlaca("carrosEnUso.txt", numeroServicio);
+		eliminarLineaArchivoIniciaPorPlaca("carrosEnUso.txt", placa);
 	}
 
 }

@@ -1,1 +1,1 @@
-TJX_598;Chevrolet;Tracker;2019;Rojo;Mecanico;Sede1;False;Limpieza;suv;
+MYC_999;Toyota;PRADO TXL;2020;Blanco;Automatico;Sede2;False;Limpieza;suv;

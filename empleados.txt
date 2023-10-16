@@ -9,3 +9,4 @@
 12035789523;Kuchau;Lura Luna;3101148985;l.luna@gmail.com;7;Sede3
 10121452033;FranchescoBirgonilli;Sol Solecito;3589754102;s.solecito@gmail.com;4;Sede3
 63587412593;ContraseñatuiMama;Prueba100;8954102357;prueba@gmail.com;1;sede3
+11257879143;ACABAMOOOS;Sergio Pan;4583521025;pan.s@gmail.com;1;sede2
