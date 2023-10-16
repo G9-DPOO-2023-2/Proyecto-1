@@ -3,9 +3,3 @@
 1104789562;Santiago Atardecer;3698451024;s.atardecer@gmail.com;48696a756570757461;04-04-1997;Colombiano;Colombia;08975345852;07-07-2029;Tarjeta Credito;123;9875102453289530;12/28;Davivienda
 1025789541;Pablo Bailarin;3610587463;p.bailarin@gmail.com;6d6f727361;02-02-2000;Colombiano;Colombia;07954201458;02-02-2031;Tarjeta Credito;456;8952014566247895;11/28;Bancolombia
 1478952014;Sherk Papasito;3478962020;s.papasito@gmail.com;43616d696c6f476f64;07-07-1969;Colombiano;Colombia;04865552314;01-01-2031;Tarjeta Credito;789;4785236985410258;06/28;Davivienda
-
-Funciona Pls;1111111111;2222222222;Fpls.@gmail.com;Colombia;123456;12-12-2025.3;Colombia;11111111111;12-12-2032;Tarjeta Credito;333;2222222222222222;Bancolombia;06/35
-2222222222;Prueba2;3333333333;p.era@gmail.com;Colombia;9878;12-12-2009;Colombia;88888888888;12-09-2029;Tarjeta Credito;000;0000000000000000;Fallabela;06/35
-1;1;1;1;1;1;1;1;1;1;1;1;1;1;1
-1236547892;Prueba3;5555555555;3prueba@gmail.com;Colombia;ContraseñaconAmor;13-07-2004;Colombia;74125896325;25-04-2029;Tarjeta Credito;555;9878987456325874;Davivienda;09/29
-Pepita Pinilla;8610000000;1257420000;pinilla.pepa@gmail.com;SalmonQueRicoEres;14-09-1900;Colombia;Colombia;00000044412;31-08-2036;Tarjeta Credito;369;00000000002258740;Colpatria;04/37

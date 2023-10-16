@@ -8,8 +8,4 @@
 14202535893;Carroshi;Sally Porche;3204892221;s.porche@gmail.com;6;Sede2
 12035789523;Kuchau;Lura Luna;3101148985;l.luna@gmail.com;7;Sede3
 10121452033;FranchescoBirgonilli;Sol Solecito;3589754102;s.solecito@gmail.com;4;Sede3
-
 63587412593;ContraseñatuiMama;Prueba100;8954102357;prueba@gmail.com;1;sede3
-
-88888888883;PruebaTop;Enrique PicaPiedra;3202301220;picaPiedra@gmail.com;2;sede2
-99999999993;Contraseñamini;Felipe Pelaez;8998899889;pelaez.pelado@gmail.com;1;sede2

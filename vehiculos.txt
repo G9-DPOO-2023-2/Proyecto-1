@@ -35,5 +35,4 @@ QOR_207; Renault; Kangoo; 2020; Blanco; Mecanico; Sede3; False; Listo;vans
 PKB_208; Renault; Master; 2020; Blanco; Automatico; Sede3; False; Mantenimiento;vans
 XBN_209; Maserati; Grecole; 2023; Gris; Automatico; Sede3; False; Limpieza;lujo
 ZML_301; Bentley; Flying Spur; 2022; Blanco; Automatico; Sede3; False; Mantenimiento;lujo
-
 QQQ_999;Hyundai;Tucson;2019;Azul;Automatica;sede2;False;Listo;SUV
