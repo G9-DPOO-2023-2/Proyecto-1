@@ -443,7 +443,7 @@ public class Aplicacion
 		
 		System.out.println("\n Por favor sigue las siguientes instrucciones para realizar la reserva ");
 		
-		String categoriaCarro = input("\n Por favor ingrese la categoria que desea (suv, deportivo, lujo, pequeño o vans ) ");
+		String categoriaCarro = input("\n Por favor ingrese la categoria que desea (suv, deportivo, lujo, pequeño o vans, moto, ATV, bicicleta, bici electrica, patineta electrica ) ");
 		String sede = input("\n En que sede desea realizar la reserva (sede1, sede2 o sede3)");
 		String fechaPickUp = input ("\n Cuando recogeria el vehiculo (día-mes-año)");
 		String sedeDevolucion = input ("\n En que sede realizara la devolucion (sede1, sede2 o sede3)");

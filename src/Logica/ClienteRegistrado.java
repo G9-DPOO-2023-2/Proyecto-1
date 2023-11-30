@@ -209,6 +209,36 @@ public class ClienteRegistrado extends Persona
 						break;
 					}
 				}
+				else if (categoria.equals("Deportivo")) {
+					if (valorCarro.get(8).equals("Moto")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("Moto")) {
+					if (valorCarro.get(8).equals("ATV")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("ATV")) {
+					if (valorCarro.get(8).equals("Bicicleta")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("Bicicleta")) {
+					if (valorCarro.get(8).equals("Bici Electrica")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("Bici Electrica")) {
+					if (valorCarro.get(8).equals("Patineta Electrica")){
+						llaveEs = llave;
+						break;
+					}
+				}
 			}	
 			
 		carrosEnUso.put(llaveEs, valorCarro);

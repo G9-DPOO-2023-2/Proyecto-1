@@ -9,3 +9,8 @@ PKB_106;Renault;Master;2020;Blanco;Automatico;Sede2;False;Mantenimiento;vans
 XBN_107;Maserati;Grecole;2023;Gris;Automatico;Sede2;False;Limpieza;lujo
 ZML_108;Bentley;Flying Spur;2022;Blanco;Automatico;Sede2;False;Mantenimiento;lujo
 QQQ_999;Hyundai;Tucson;2019;Azul;Automatica;sede2;False;Listo;SUV
+CCC_189;Suzuki;GIXXER;2020;Negro;Mecanico;Sede2;False;Listo;moto
+GGG_741;Polaris;N/A;2022;Gris;Automatico;Sede2;False;Mantenimiento;ATV
+N/A;Specialized;N/A;2017;Verde;N/A;Sede2;False;Lista;Bicicleta
+N/A;Trek;N/A;2021;Negra;N/A;Sede2;False;Lista;Bicicleta Electrica
+N/A;Xiaomi;N/A;2021;Negra;N/A;Sede2;True;Lista;Patineta Electrica

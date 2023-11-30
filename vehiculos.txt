@@ -36,3 +36,23 @@ PKB_208; Renault; Master; 2020; Blanco; Automatico; Sede3; False; Mantenimiento;
 XBN_209; Maserati; Grecole; 2023; Gris; Automatico; Sede3; False; Limpieza;lujo
 ZML_301; Bentley; Flying Spur; 2022; Blanco; Automatico; Sede3; False; Mantenimiento;lujo
 QQQ_999;Hyundai;Tucson;2019;Azul;Automatica;sede2;False;Listo;SUV
+AAA_598;Suzuki;GIXXER;2020;Negro;Mecanico;calle 83 N 1-84;True;None;moto
+BBB_121;Suzuki;GIXXER;2020;Negro;Mecanico;Sede1;False;Listo;moto
+CCC_189;Suzuki;GIXXER;2020;Negro;Mecanico;Sede2;False;Listo;moto
+DDD_004;Suzuki;GIXXER;2020;Negro;Mecanico;Sede3;False;Listo;moto
+EEE_457;Polaris;N/A;2023;Azul;Automatico;cra 09 N 12-56;True;None;ATV
+FFF_741;Polaris;N/A;2022;Rojo;Automatico;Sede1;False;Limpieza;ATV
+GGG_741;Polaris;N/A;2022;Gris;Automatico;Sede2;False;Mantenimiento;ATV
+HHH_741;Polaris;N/A;2022;Rojo;Automatico;Sede3;False;Listo;ATV 
+N/A;Specialized;N/A;2023;Blanca;N/A;calle 142 N 13-73;True;None;Bicicleta
+N/A;Specialized;N/A;2014;Rosada;N/A;Sede1;False;Lista;Bicicleta
+N/A;Specialized;N/A;2017;Verde;N/A;Sede2;False;Lista;Bicicleta
+N/A;Specialized;N/A;2019;Rosada;N/A;Sede3;False;Lista;Bicicleta
+N/A;Trek;N/A;2022;Naranja;N/A;NQS N 12-49;True;None;Bicicleta Electrica
+N/A;Trek;N/A;2021;Gris;N/A;Sede1;False;Lista;Bicicleta Electrica
+N/A;Trek;N/A;2021;Negra;N/A;Sede2;False;Lista;Bicicleta Electrica
+N/A;Trek;N/A;2021;Gris;N/A;Sede3;False;Lista;Bicicleta Electrica
+N/A;Xiaomi;N/A;2020;Negra;N/A;calle 121 N 4-1;False;None;Patineta Electrica
+N/A;Xiaomi;N/A;2020;Negra;N/A;Sede1;True;Lista;Patineta Electrica
+N/A;Xiaomi;N/A;2021;Negra;N/A;Sede2;True;Lista;Patineta Electrica
+N/A;Xiaomi;N/A;2020;Blanca;N/A;Sede3;True;Lista;Patineta Electrica

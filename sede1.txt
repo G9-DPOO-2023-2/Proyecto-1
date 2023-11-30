@@ -8,3 +8,8 @@ QOR_222;Renault;Kangoo;2020;Blanco;Mecanico;Sede1;False;Listo;vans
 PKB_333;Renault;Master;2020;Blanco;Automatico;Sede1;False;Mantenimiento;vans
 XBN_444;Maserati;Grecole;2023;Gris;Automatico;Sede1;False;Limpieza;lujo
 ZML_555;Bentley;Flying Spur;2022;Blanco;Automatico;Sede1;False;Mantenimiento;lujo
+BBB_121;Suzuki;GIXXER;2020;Negro;Mecanico;Sede1;False;Listo;moto
+FFF_741;Polaris;N/A;2022;Rojo;Automatico;Sede1;False;Limpieza;ATV
+N/A;Specialized;N/A;2014;Rosada;N/A;Sede1;False;Lista;Bicicleta
+N/A;Trek;N/A;2021;Gris;N/A;Sede1;False;Lista;Bicicleta Electrica
+N/A;Xiaomi;N/A;2020;Negra;N/A;Sede1;True;Lista;Patineta Electrica
