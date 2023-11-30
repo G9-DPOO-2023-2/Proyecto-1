@@ -1,0 +1,1 @@
+BBB_121;Suzuki;GIXXER;2020;Negro;Mecanico;Sede1;False;Listo;moto;
