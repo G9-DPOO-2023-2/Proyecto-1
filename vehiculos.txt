@@ -44,15 +44,15 @@ EEE_457;Polaris;N/A;2023;Azul;Automatico;cra 09 N 12-56;True;None;ATV
 FFF_741;Polaris;N/A;2022;Rojo;Automatico;Sede1;False;Limpieza;ATV
 GGG_741;Polaris;N/A;2022;Gris;Automatico;Sede2;False;Mantenimiento;ATV
 HHH_741;Polaris;N/A;2022;Rojo;Automatico;Sede3;False;Listo;ATV 
-N/A;Specialized;N/A;2023;Blanca;N/A;calle 142 N 13-73;True;None;Bicicleta
-N/A;Specialized;N/A;2014;Rosada;N/A;Sede1;False;Lista;Bicicleta
-N/A;Specialized;N/A;2017;Verde;N/A;Sede2;False;Lista;Bicicleta
-N/A;Specialized;N/A;2019;Rosada;N/A;Sede3;False;Lista;Bicicleta
-N/A;Trek;N/A;2022;Naranja;N/A;NQS N 12-49;True;None;Bicicleta Electrica
-N/A;Trek;N/A;2021;Gris;N/A;Sede1;False;Lista;Bicicleta Electrica
-N/A;Trek;N/A;2021;Negra;N/A;Sede2;False;Lista;Bicicleta Electrica
-N/A;Trek;N/A;2021;Gris;N/A;Sede3;False;Lista;Bicicleta Electrica
-N/A;Xiaomi;N/A;2020;Negra;N/A;calle 121 N 4-1;False;None;Patineta Electrica
-N/A;Xiaomi;N/A;2020;Negra;N/A;Sede1;True;Lista;Patineta Electrica
-N/A;Xiaomi;N/A;2021;Negra;N/A;Sede2;True;Lista;Patineta Electrica
-N/A;Xiaomi;N/A;2020;Blanca;N/A;Sede3;True;Lista;Patineta Electrica
+B1;Specialized;N/A;2023;Blanca;N/A;calle 142 N 13-73;True;None;Bicicleta
+B2;Specialized;N/A;2014;Rosada;N/A;Sede1;False;Lista;Bicicleta
+B3;Specialized;N/A;2017;Verde;N/A;Sede2;False;Lista;Bicicleta
+B4;Specialized;N/A;2019;Rosada;N/A;Sede3;False;Lista;Bicicleta
+BE1;Trek;N/A;2022;Naranja;N/A;NQS N 12-49;True;None;Bicicleta Electrica
+BE2;Trek;N/A;2021;Gris;N/A;Sede1;False;Lista;Bicicleta Electrica
+BE3;Trek;N/A;2021;Negra;N/A;Sede2;False;Lista;Bicicleta Electrica
+BE4;Trek;N/A;2021;Gris;N/A;Sede3;False;Lista;Bicicleta Electrica
+PE1;Xiaomi;N/A;2020;Negra;N/A;calle 121 N 4-1;False;None;Patineta Electrica
+PE2;Xiaomi;N/A;2020;Negra;N/A;Sede1;True;Lista;Patineta Electrica
+PE3;Xiaomi;N/A;2021;Negra;N/A;Sede2;True;Lista;Patineta Electrica
+PE4;Xiaomi;N/A;2020;Blanca;N/A;Sede3;True;Lista;Patineta Electrica

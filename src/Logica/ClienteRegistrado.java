@@ -15,8 +15,12 @@ public class ClienteRegistrado extends Persona
 {
 	private ArrayList<Reserva> infoReserva;
 	private HashMap <Integer, ArrayList<Reserva>> reservas;
+	private ArrayList<Alquiler> infoAlquiler;
+	private HashMap <Integer, ArrayList<Alquiler>> alquileres;
 	private int reserva = 0;
 	private Reserva nuevaReserva;
+	private Alquiler nuevoAlquiler;
+	private int alquiler = 0;
 
 	private BaseDatos basedatos;
 
@@ -57,6 +61,8 @@ public class ClienteRegistrado extends Persona
 		reservas = new HashMap<>();
 		infoReserva = new ArrayList<>();
 		carrosEnUso = new HashMap<>();
+		infoAlquiler = new ArrayList<>();
+		alquileres = new HashMap<>();
 		this.basedatos = new BaseDatos();
 		basedatos.cargarSede1("sede1.txt");
 		basedatos.cargarSede2("sede2.txt");
@@ -143,6 +149,22 @@ public class ClienteRegistrado extends Persona
 
 	public void setCarrosEnUso(HashMap<String, List<String>> carrosEnUso) {
 		this.carrosEnUso = carrosEnUso;
+	}
+	
+	public ArrayList<Alquiler> getInfoAlquiler() {
+		return infoAlquiler;
+	}
+
+	public void setInfoAlquiler(ArrayList<Alquiler> infoAlquiler) {
+		this.infoAlquiler = infoAlquiler;
+	}
+
+	public HashMap<Integer, ArrayList<Alquiler>> getAlquileres() {
+		return alquileres;
+	}
+
+	public void setAlquileres(HashMap<Integer, ArrayList<Alquiler>> alquileres) {
+		this.alquileres = alquileres;
 	}
 
 	//*************************************************************
@@ -327,4 +349,98 @@ public class ClienteRegistrado extends Persona
 	}
 	}
 	
+public void guardarInfoAlquiler(String categoria, String sedeEscogida, String fechaPickUp, String horaTurnIn, String sedeTurnIn) {
+		
+		this.nuevoAlquiler = new Alquiler(categoria,sedeEscogida,fechaPickUp,sedeTurnIn,horaTurnIn);
+		infoAlquiler.add(nuevoAlquiler);
+		alquileres.put(++alquiler, infoAlquiler);
+		
+		HashMap<String, List<String>> sede = null;
+		
+		if (sedeEscogida.equals("sede1")) {
+			sede = basedatos.getSede1();
+		}
+		
+		else if (sedeEscogida.equals("sede2")) {
+			sede = basedatos.getSede2();
+		}
+		
+		else if (sedeEscogida.equals("sede3")) {
+			sede = basedatos.getSede3();
+		}
+
+		
+		
+
+			Set<String> llaves = sede.keySet();
+			String llaveEs = null;
+			List<String> valorCarro = null;
+
+			for (String llave : llaves){
+				valorCarro = sede.get(llave);
+				if (valorCarro.get(8).equals(categoria)){
+					llaveEs = llave;
+					break;
+				}
+			}
+			
+			for (String llave : llaves){
+				if (categoria.equals("pequeño")) {
+					if (valorCarro.get(8).equals("suv")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("suv")) {
+					if (valorCarro.get(8).equals("vans")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("vans")) {
+					if (valorCarro.get(8).equals("lujo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("lujo")) {
+					if (valorCarro.get(8).equals("Deportivo")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("Deportivo")) {
+					if (valorCarro.get(8).equals("Moto")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("Moto")) {
+					if (valorCarro.get(8).equals("ATV")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("ATV")) {
+					if (valorCarro.get(8).equals("Bicicleta")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("Bicicleta")) {
+					if (valorCarro.get(8).equals("Bici Electrica")){
+						llaveEs = llave;
+						break;
+					}
+				}
+				else if (categoria.equals("Bici Electrica")) {
+					if (valorCarro.get(8).equals("Patineta Electrica")){
+						llaveEs = llave;
+						break;
+					}
+				}
+			}	
+			
+		carrosEnUso.put(llaveEs, valorCarro);
+}
 }

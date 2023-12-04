@@ -23,6 +23,11 @@ public class Categoria
 	private HashMap<String, List<String>> lujo;
 	private HashMap<String, List<String>> vans;
 	private HashMap<String, List<String>> deportivo;
+	private HashMap<String, List<String>> moto;
+	private HashMap<String, List<String>> ATV;
+	private HashMap<String, List<String>> Bicicleta;
+	private HashMap<String, List<String>> bicicleta_electrica;
+	private HashMap<String, List<String>> patineta_electrica;
 	
 	
 	//**********************************************************************************
@@ -36,6 +41,11 @@ public class Categoria
 		lujo = new HashMap<>();
 		vans = new HashMap<>();
 		deportivo = new HashMap<>();
+		moto = new HashMap<>();
+		ATV = new HashMap<>();
+		Bicicleta = new HashMap<>();
+		bicicleta_electrica = new HashMap<>();
+		patineta_electrica = new HashMap<>();
 	}
 
 	//Metodos OJO recomendable poner setters and getters
@@ -65,8 +75,28 @@ public class Categoria
 		return deportivo;
 	}
 	
-	//Metodos de Logica
+	public HashMap<String, List<String>> getMoto() {
+		return moto;
+	}
 	
+	public HashMap<String, List<String>> getATV() {
+		return ATV;
+	}
+	
+	public HashMap<String, List<String>> getBicicleta() {
+		return Bicicleta;
+	}
+	
+	public HashMap<String, List<String>> getBicicleta_electrica() {
+		return bicicleta_electrica;
+	}
+	
+	public HashMap<String, List<String>> getPatineta_electrica() {
+		return patineta_electrica;
+	}
+
+	//Metodos de Logica
+
 	public void cargarFlotilla(String archivoVehiculos)
 	{
 		try 
@@ -76,7 +106,6 @@ public class Categoria
 
 		}
 	}
-	
 	
 	
 	/**

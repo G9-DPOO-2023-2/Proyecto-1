@@ -118,7 +118,7 @@ public class Aplicacion
 	{
 		
 		System.out.println("\nOpciones de la aplicación\n");
-		System.out.println("OJO El unico que puede crear cuentas de empleado es el AdminLocal, inicia secion para hacerlo");
+		System.out.println("OJO El unico que puede crear cuentas de empleado es el AdminLocal, inicia sesion para hacerlo");
 		System.out.println("1. Iniciar Sesión");
 		System.out.println("2. Crear Cuenta Nuevo Cliente");
 		System.out.println("3. Salir");
@@ -490,9 +490,9 @@ public class Aplicacion
 	
 	public void registrarCompraNuevosVehiculos() throws IOException
 	{
-		System.out.println("\n Por favor sigue los pasos para poder registrar el Nuevo Vehiculo");
+		System.out.println("\n Por favor sigue los pasos para poder registrar el Nuevo Vehiculo, si alguna categoria no aplica por favor diligenciar N/A");
 		
-		String placa = input("Por favor ingrese la placa de registro del nuevo vehiculo");
+		String placa = input("Por favor ingrese la placa de registro del nuevo vehiculo, no se le olvide que como las bicicletas y patinetas no tiene placa ellas se registran con la inicial y el numero que es");
 		String marca = input("Por favor ingrese la marca del nuevo vehiculo");
 		String modelo = input("Por favor ingrese el modelo de su vehiculo (como lo llamo la marca para identificarlo)");
 		String ano = input("Por favor ingrese el año de su vehiculo");
@@ -501,7 +501,7 @@ public class Aplicacion
 		String ubicacion = input("¿A que sede va a llegar el nuevo vehiculo?");
 		String alquilado = input("Por favor escriba False");
 		String estado = input("Por favor escriba Listo para validar que el nuevo vehiculo estara disponible para ser Reservado o Alquilado ");
-		String tipo = input("Y por ultimo a que categoria pertenece este nuevo vehiculo (suv, pequeño, lujo, deportivo, vans)");
+		String tipo = input("Y por ultimo a que categoria pertenece este nuevo vehiculo (suv, pequeño, lujo, deportivo, vans, moto, ATV, Bicicleta, Bicicleta Electrica, Patineta Electrica)");
 		
 		Vehiculo carritoNuevo = new Vehiculo(placa, marca, modelo, ano, color, transmision, ubicacion, alquilado, estado, tipo);
 		adminGeneral.registrarCompraNuevoVehiculo(placa, marca, modelo, ano, color, transmision, ubicacion, alquilado, estado, tipo);
@@ -735,6 +735,25 @@ public class Aplicacion
 		
 		inventario.cambiarEstadoCarro(placa, sede, estado);
 		System.out.println("El vehiculo volvera a estar Listo para: " + fecha);
+	}
+	
+	public void realizarAlquilerVehiculo()
+	{
+		System.out.println("\n Por favor sigue las siguientes instrucciones para realizar el alquiler ");
+		
+		String categoriaCarro = input("\n Por favor ingrese la categoria que desea (suv, deportivo, lujo, pequeño o vans, moto, ATV, bicicleta, bici electrica, patineta electrica ) ");
+		String sede = input("\n En que sede desea realizar la reserva (sede1, sede2 o sede3)");
+		String fechaPickUp = input ("\n Cuando recogeria el vehiculo (día-mes-año)");
+		String sedeDevolucion = input ("\n En que sede realizara la devolucion (sede1, sede2 o sede3)");
+		String fechaDevolucion = input ("\n En que fecha realizara la devolucion (día-mes-año)");
+		
+		System.out.println("\n Ahora escoga la manera en que se realizara el pago");
+		
+		
+		cliente.guardarCarrosEnUso(categoriaCarro, sede, fechaPickUp, fechaDevolucion, sedeDevolucion);
+		
+		System.out.println("\n Se ha realizado su reserva con el identificador numero "+ ++contador + " y se le realizo un cobro del 30% sobre " + "\n la tarifa calculada"); 
+		
 	}
 	
 	/**

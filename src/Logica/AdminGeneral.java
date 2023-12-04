@@ -49,15 +49,35 @@ public class AdminGeneral extends Persona
 		}
 		else if (tipo.equals("lujo"))
 		{
-			categorias.getPequeno().put(placa, infoNuevoVehiculo);
+			categorias.getLujo().put(placa, infoNuevoVehiculo);
 		}
 		else if (tipo.equals("deportivo"))
 		{
-			categorias.getPequeno().put(placa, infoNuevoVehiculo);
+			categorias.getDeportivo().put(placa, infoNuevoVehiculo);
 		}
 		else if (tipo.equals("vans"))
 		{
-			categorias.getPequeno().put(placa, infoNuevoVehiculo);
+			categorias.getVans().put(placa, infoNuevoVehiculo);
+		}
+		else if (tipo.equals("moto"))
+		{
+			categorias.getMoto().put(placa, infoNuevoVehiculo);
+		}
+		else if (tipo.equals("ATV"))
+		{
+			categorias.getATV().put(placa, infoNuevoVehiculo);
+		}
+		else if (tipo.equals("Bicicleta"))
+		{
+			categorias.getBicicleta().put(placa, infoNuevoVehiculo);
+		}
+		else if (tipo.equals("bicicleta_electrica"))
+		{
+			categorias.getBicicleta_electrica().put(placa, infoNuevoVehiculo);
+		}
+		else if (tipo.equals("patineta_electrica"))
+		{
+			categorias.getPatineta_electrica().put(placa, infoNuevoVehiculo);
 		}
 	}
 	
