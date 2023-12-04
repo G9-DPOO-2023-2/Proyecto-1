@@ -165,6 +165,41 @@ public class Categoria
  	                }
                 	 deportivo.put(placa, valores); 
                 }
+                if (categoria.equals("moto"))
+                {
+                	 for (int i = 1; i < partes.length; i++) {
+ 	                    valores.add(partes[i]);
+ 	                }
+                	 moto.put(placa, valores); 
+                }
+                if (categoria.equals("ATV"))
+                {
+                	 for (int i = 1; i < partes.length; i++) {
+ 	                    valores.add(partes[i]);
+ 	                }
+                	 ATV.put(placa, valores); 
+                }
+                if (categoria.equals("bicicleta"))
+                {
+                	 for (int i = 1; i < partes.length; i++) {
+ 	                    valores.add(partes[i]);
+ 	                }
+                	 Bicicleta.put(placa, valores); 
+                }
+                if (categoria.equals("bici electrica"))
+                {
+                	 for (int i = 1; i < partes.length; i++) {
+ 	                    valores.add(partes[i]);
+ 	                }
+                	 bicicleta_electrica.put(placa, valores); 
+                }
+                if (categoria.equals("patineta electrica"))
+                {
+                	 for (int i = 1; i < partes.length; i++) {
+ 	                    valores.add(partes[i]);
+ 	                }
+                	 patineta_electrica.put(placa, valores); 
+                }
             }
             br.close();
             

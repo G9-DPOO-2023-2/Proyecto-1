@@ -20,6 +20,7 @@ import Logica.BaseDatos;
 import Logica.Licencia;
 import Logica.MetodoPago;
 import Logica.Vehiculo;
+import Logica.PasarelaPagos;
 
 
 import Procesamiento.Inventario;
@@ -35,6 +36,7 @@ public class Aplicacion
 	private Sede sede;
 	private Empleado empleado;
 	private Vehiculo vehiculo;
+	private PasarelaPagos pasarelaPagos;
 	
 	
 	private Inventario inventario;
@@ -54,6 +56,7 @@ public class Aplicacion
 		sede = new Sede(null, null, null);
 		empleado = new Empleado(null, null, null, null, null, null, null);
 		vehiculo = new Vehiculo(null, null, null, null, null, null, null, null, null, null); 
+		pasarelaPagos = new PasarelaPagos();
 
 		
 		inventario = new Inventario(baseDatos, vehiculo);
@@ -346,6 +349,7 @@ public class Aplicacion
 						System.out.println("\nB. Devolucion Vehiculo");
 						System.out.println("\nC. Registro Conductor Adicional");
 						System.out.println("\nD. Actualizar Estado Vehiculo");
+						System.out.println("\nE. Alquilar Vehiculo");
 
 						String opcion = input("\nPor favor seleccione una opción");
 						if(opcion.equals("A")) {
@@ -371,6 +375,12 @@ public class Aplicacion
 						}
 						else if(opcion.equals("D")) {
 							actualizarEstadoVehiculo();
+							System.out.println("1. Continuar en la vista del Empleado");
+							System.out.println("2. Finaizar uso de la App");
+							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
+							terminoDeUsarApp = opcion_seleccionada ==2;
+						}else if(opcion.equals("E")) {
+							realizarAlquilerVehiculo();
 							System.out.println("1. Continuar en la vista del Empleado");
 							System.out.println("2. Finaizar uso de la App");
 							opcion_seleccionada = Integer.parseInt(input("\nPor favor seleccione una opción"));
@@ -737,22 +747,93 @@ public class Aplicacion
 		System.out.println("El vehiculo volvera a estar Listo para: " + fecha);
 	}
 	
-	public void realizarAlquilerVehiculo()
+	public void realizarAlquilerVehiculo() throws IOException
 	{
 		System.out.println("\n Por favor sigue las siguientes instrucciones para realizar el alquiler ");
+		
+		int numTransaccion = 0;
+		long monto = 0;
+		long seguro = 0;
+		long total = 0;
 		
 		String categoriaCarro = input("\n Por favor ingrese la categoria que desea (suv, deportivo, lujo, pequeño o vans, moto, ATV, bicicleta, bici electrica, patineta electrica ) ");
 		String sede = input("\n En que sede desea realizar la reserva (sede1, sede2 o sede3)");
 		String fechaPickUp = input ("\n Cuando recogeria el vehiculo (día-mes-año)");
 		String sedeDevolucion = input ("\n En que sede realizara la devolucion (sede1, sede2 o sede3)");
 		String fechaDevolucion = input ("\n En que fecha realizara la devolucion (día-mes-año)");
+		if (categoriaCarro.equals("suv")){
+			monto = 400000;
+		}else if (categoriaCarro.equals("deportivo")) {
+			monto = 1300000;
+		}else if (categoriaCarro.equals("lujo")) {
+			monto = 630000;
+		}else if (categoriaCarro.equals("pequeño")) {
+			monto = 250000;
+		}else if (categoriaCarro.equals("vans")) {
+			monto = 330000;
+		}else if (categoriaCarro.equals("moto")) {
+			monto = 180000;
+		}else if (categoriaCarro.equals("ATV")) {
+			monto = 540000;
+		}else if (categoriaCarro.equals("bicicleta")) {
+			monto = 120000;
+		}else if (categoriaCarro.equals("bici electrica")) {
+			monto = 420000;
+		}else if (categoriaCarro.equals("patineta electrica")) {
+			monto = 370000;
+		}
 		
-		System.out.println("\n Ahora escoga la manera en que se realizara el pago");
+		seguro = monto*(10/100);
+		total = monto + seguro;
+		
+		System.out.println("\n MEDIO DE PAGO");
+		String medioPago = input ("\n Ahora escoga la manera en que se realizara el pago (Tarjeta Debito, PayU o PayPal)");
+		if (medioPago.equals("Tarjeta Debito"))
+		{
+			String nombre_completo = input("Por favor ingrese el nombre completo del cliente");
+			String cedula = input("Por favor ingrese la cedula del cliente");
+			String paisExpedicion = input("Por favor ingrese el pais de expedicion del ID del cliente");
+			String email = input("Por favor ingrese el correo del cliente");
+			String numCuenta = input("Por ultimo ingrese el numero de cuenta con la que el cliente piensa pagar");
+			
+			ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre_completo,cedula,null,email,null,null,null,null,paisExpedicion);
+			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null);
+			pasarelaPagos.agregarPagoARealizar(cliente_nuevo, metodo);
+			
+			System.out.println("\n Señor " + nombre_completo + " con cedula" + cedula + " de " + paisExpedicion +" se ha realizado su alquiler de forma exitosa con el numero de transaccion "+ ++numTransaccion + " por medio de la cuenta " +numCuenta+ " y se le realizo un cobro de "+ monto  + "\n con una adición de prima seguro de " + seguro + "siendo su precio total: "+ total +"." );
+			System.out.println("\n Su confirmación le llegara al correo " + email);
+			
+		}else if(medioPago.equals("PayU"))
+		{
+			String nombre_completo = input("Por favor ingrese el nombre completo del cliente");
+			String cedula = input("Por favor ingrese la cedula del cliente");
+			String paisExpedicion = input("Por favor ingrese el pais de expedicion del ID del cliente");
+			String email = input("Por favor ingrese el correo del cliente");
+			String numCuenta = input("Por ultimo ingrese el numero de cuenta con la que el cliente piensa pagar");
+			
+			ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre_completo,cedula,null,email,null,null,null,null,paisExpedicion);
+			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null);
+			pasarelaPagos.agregarPagoARealizar(cliente_nuevo, metodo);
+			pasarelaPagos.agregarNuevoPayU(cliente_nuevo, metodo);
+			
+		}else if(medioPago.equals("PayPal"))
+		{
+			String nombre_completo = input("Por favor ingrese el nombre completo del cliente");
+			String cedula = input("Por favor ingrese la cedula del cliente");
+			String paisExpedicion = input("Por favor ingrese el pais de expedicion del ID del cliente");
+			String email = input("Por favor ingrese el correo del cliente");
+			String numCuenta = input("Por ultimo ingrese el numero de cuenta con la que el cliente piensa pagar");
+			
+			ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre_completo,cedula,null,email,null,null,null,null,paisExpedicion);
+			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null);
+			pasarelaPagos.agregarPagoARealizar(cliente_nuevo, metodo);
+			pasarelaPagos.agregarNuevoPayPal(cliente_nuevo, metodo);
+		}
 		
 		
 		cliente.guardarCarrosEnUso(categoriaCarro, sede, fechaPickUp, fechaDevolucion, sedeDevolucion);
 		
-		System.out.println("\n Se ha realizado su reserva con el identificador numero "+ ++contador + " y se le realizo un cobro del 30% sobre " + "\n la tarifa calculada"); 
+		 
 		
 	}
 	
