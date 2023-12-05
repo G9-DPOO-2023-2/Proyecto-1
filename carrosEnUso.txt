@@ -1,1 +1,2 @@
-BBB_121;Suzuki;GIXXER;2020;Negro;Mecanico;Sede1;False;Listo;moto;
+null;Bentley;Flying Spur;2022;Blanco;Automatico;Sede1;False;Mantenimiento;lujo;
+null;Bentley;Flying Spur;2022;Blanco;Automatico;Sede1;False;Mantenimiento;lujo;BBB_121;Suzuki;GIXXER;2020;Negro;Mecanico;Sede1;False;Listo;moto;
