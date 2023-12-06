@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+
 public class PasarelaPagos {
 	
 private HashMap<String, ArrayList<String>> PayU;
@@ -110,4 +111,49 @@ public void agregarNuevoPayU (ClienteRegistrado nuevo_cliente, MetodoPago metodo
 	br.close();
 }
 
+public void validarPago (ClienteRegistrado nuevo_cliente, MetodoPago metodoPago, String llave) throws ProblemasPasarela
+{
+	ArrayList<String> validacion = null;
+	String valor = "";
+	if(metodoPago.getTipoTarjeta().equals("PayU")) {
+		if (getPayU().containsKey(nuevo_cliente.getCedula()) == false) {
+			
+			throw new ProblemasPasarela(ProblemasPasarela.NUM_CEDULA);
+			
+		}else if(getPayU().containsKey(nuevo_cliente.getCedula()) == true) {
+			
+			validacion = getPayU().get(nuevo_cliente.getCedula());
+			for (int i = 0; i < validacion.size(); i++) {
+				valor = validacion.get(i);
+				if (i == 0 && valor.equals(nuevo_cliente.getNombre()) == false )
+				{
+					throw new ProblemasPasarela(ProblemasPasarela.NOM_CLIENTE);
+				}else if (i == 3 && valor.equals(metodoPago.getNumeroTarjeta())==false)
+				{
+					throw new ProblemasPasarela(ProblemasPasarela.NUM_CUENTA);
+				}
+			}
+		}
+	}else if (metodoPago.getTipoTarjeta().equals("PayPal"))
+	{
+if (getPayPal().containsKey(nuevo_cliente.getCedula()) == false) {
+			
+			throw new ProblemasPasarela(ProblemasPasarela.NUM_CEDULA);
+			
+		}else if(getPayPal().containsKey(nuevo_cliente.getCedula()) == true) {
+			
+			validacion = getPayPal().get(nuevo_cliente.getCedula());
+			for (int i = 0; i < validacion.size(); i++) {
+				valor = validacion.get(i);
+				if (i == 0 && valor.equals(nuevo_cliente.getNombre()) == false )
+				{
+					throw new ProblemasPasarela(ProblemasPasarela.NOM_CLIENTE);
+				}else if (i == 3 && valor.equals(metodoPago.getNumeroTarjeta())==false)
+				{
+					throw new ProblemasPasarela(ProblemasPasarela.NUM_CUENTA);
+				}
+			}
+		}
+	}
+	}
 }

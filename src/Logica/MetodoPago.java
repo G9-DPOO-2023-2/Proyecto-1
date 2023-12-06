@@ -11,18 +11,20 @@ public class MetodoPago {
 	String numeroTarjeta;
 	String banco;
 	String fechaVencimientoTarjeta;
+	String saldo;
 	
 	//************************************************************
 	//constructor
 	//************************************************************
 	
-	public MetodoPago(String tipoTarjeta, String codigoDeSeguridad, String numeroTarjeta, String banco, String fechaVencimientoTarjeta) {
+	public MetodoPago(String tipoTarjeta, String codigoDeSeguridad, String numeroTarjeta, String banco, String fechaVencimientoTarjeta, String saldo) {
 		super();
 		this.tipoTarjeta = tipoTarjeta;
 		this.codigoDeSeguridad = codigoDeSeguridad;
 		this.numeroTarjeta = numeroTarjeta;
 		this.banco = banco;
 		this.fechaVencimientoTarjeta = fechaVencimientoTarjeta;
+		this.saldo = saldo;
 		
 	}
 	
@@ -68,6 +70,10 @@ public class MetodoPago {
 
 	public void setFechaVencimientoTarjeta(String fechaVencimientoTarjeta) {
 		this.fechaVencimientoTarjeta = fechaVencimientoTarjeta;
+	}
+	
+	public String getSaldo() {
+		return saldo;
 	}
 	
 

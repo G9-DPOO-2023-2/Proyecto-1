@@ -427,10 +427,10 @@ public class Aplicacion
 		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
-		
+		String saldo = input("\n Por favor digite el saldo que iene presente");
 		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre,cedula,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
 		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
-		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
+		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco,saldo);
 		
 		
 		
@@ -680,10 +680,11 @@ public class Aplicacion
 		String numeroTarjeta = input("\n Por favor digite el numero de su Tarjeta (16 digitos)");
 		String fechaVencimientoTarjeta = input("\n Por favor escriba la fecha cuando debe cambiar su tarjeta formato (mes-año)");
 		String banco = input("\n Por favor escriba el banco al que pertenece su Tarjeta");
+		String saldo = input("\n Por favor digite el saldo que iene presente");
 		
 		ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre,cedula,celular,email,null,contraseña,fechaNacimiento,nacionalidad,lugarExpedicionCC);
 		Licencia licencia = new Licencia(numeroLicencia, fechaVencimientoLicencia);
-		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco);
+		MetodoPago metodo = new MetodoPago(medioPago, cvc, numeroTarjeta, fechaVencimientoTarjeta, banco, saldo);
 		
 		
 		
@@ -797,7 +798,7 @@ public class Aplicacion
 			String numCuenta = input("Por ultimo ingrese el numero de cuenta con la que el cliente piensa pagar");
 			
 			ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre_completo,cedula,null,email,null,null,null,null,paisExpedicion);
-			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null);
+			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null,null);
 			pasarelaPagos.agregarPagoARealizar(cliente_nuevo, metodo);
 			
 			System.out.println("\n Señor " + nombre_completo + " con cedula" + cedula + " de " + paisExpedicion +" se ha realizado su alquiler de forma exitosa con el numero de transaccion "+ ++numTransaccion + " por medio de la cuenta " +numCuenta+ " y se le realizo un cobro de "+ monto  + "\n con una adición de prima seguro de " + seguro + "siendo su precio total: "+ total +"." );
@@ -812,7 +813,7 @@ public class Aplicacion
 			String numCuenta = input("Por ultimo ingrese el numero de cuenta con la que el cliente piensa pagar");
 			
 			ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre_completo,cedula,null,email,null,null,null,null,paisExpedicion);
-			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null);
+			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null,null);
 			pasarelaPagos.agregarPagoARealizar(cliente_nuevo, metodo);
 			pasarelaPagos.agregarNuevoPayU(cliente_nuevo, metodo);
 			
@@ -825,7 +826,7 @@ public class Aplicacion
 			String numCuenta = input("Por ultimo ingrese el numero de cuenta con la que el cliente piensa pagar");
 			
 			ClienteRegistrado cliente_nuevo = new ClienteRegistrado(nombre_completo,cedula,null,email,null,null,null,null,paisExpedicion);
-			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null);
+			MetodoPago metodo = new MetodoPago(medioPago, null, numCuenta, null, null,null);
 			pasarelaPagos.agregarPagoARealizar(cliente_nuevo, metodo);
 			pasarelaPagos.agregarNuevoPayPal(cliente_nuevo, metodo);
 		}
